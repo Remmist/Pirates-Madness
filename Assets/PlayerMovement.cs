@@ -15,7 +15,10 @@ public class PlayerMovement : MonoBehaviour
     private int _counterAirJumps = 0;
     private bool _isAfterJump;
     private bool _performAirJump;
-    
+
+    //variables for how the projectiles act when shoot by the player
+    public Projectile projectilePrefab;
+    public Transform launchOffSet;
     
     private void Awake()
     {
@@ -36,6 +39,13 @@ public class PlayerMovement : MonoBehaviour
             _performAirJump = true;
             _counterAirJumps++;
         }
+
+        //condition for firing projectiles (Ctrl as default)
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(projectilePrefab, launchOffSet.position, transform.rotation);
+        }
+
     }
 
     private void FixedUpdate()
