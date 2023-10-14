@@ -5,10 +5,20 @@ using UnityEngine;
 public class ProjectileSpawnPoint : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private float cooldown;
 
     private void Start()
     {
-        Instantiate(projectilePrefab, transform.position, transform.rotation);
+        StartCoroutine(SpawnCoroutine());
+    }
+
+    private IEnumerator SpawnCoroutine()
+    {
+        while (true)
+        {
+            Instantiate(projectilePrefab, transform.position, transform.rotation);
+            yield return new WaitForSeconds(cooldown);
+        }
     }
 
 }
