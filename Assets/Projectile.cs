@@ -25,6 +25,16 @@ public class Projectile : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);
+            Destroy(gameObject);
+        } else if (other.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
         }
+
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }
