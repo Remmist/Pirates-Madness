@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
 {
 
     private Rigidbody2D _rb;
-    //private bool _isGrounded;
 
     private void Awake()
     {
@@ -25,15 +24,4 @@ public class Enemy : MonoBehaviour
     {
         
     }
-
-    /*private void OnCollisionEnter2D(Collision2D other)
-    {
-        _isGrounded = true;
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        _isGrounded = false;
-    }
-    */
 }
