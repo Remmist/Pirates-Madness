@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class PlayerCharacteristics : MonoBehaviour
 {
-    [SerializeField] private float _health = 100;
-    [SerializeField] private float _damage = 10;
-    
-    
-    
-    
+    public float _maxHealth = 100;
+    public float _damage = 10;
+
+    private float _currentHealth;
+
+
+
+
 }
