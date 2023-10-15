@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
             _performJump = true;
         }
 
-        if (Input.GetButtonDown("Jump") && _isAfterJump)
+        if (Input.GetButtonDown("Jump") && _isAfterJump && _counterAirJumps < _maxAmountOfAirJumps)
         {
             _performAirJump = true;
             _counterAirJumps++;
