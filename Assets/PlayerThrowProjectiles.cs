@@ -2,20 +2,32 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class PlayerThrowProjectiles : MonoBehaviour
+public class PlayerThrowProjectiles : PlayerProjectile
 {
-    
-    //variables for how the projectiles act when shoot by the player
-    public Projectile projectilePrefab;
-    public Transform launchOffSet;
+    //Variables for how the projectiles act when shoot by the player
+    [SerializeField] private GameObject _playerProjectilePrefab;
+    [SerializeField] private Transform _launchOffSet;
+    [SerializeField] private float _shootSpeed = 10f;
 
     private void Update()
     {
-        //condition for firing projectiles (Ctrl as default)
-        if (Input.GetButtonDown("Fire1"))
+        
+        Vector2 shootingDirection = transform.right;
+
+        if (transform.localScale.x < 0) // If the character faces left
         {
-            Instantiate(projectilePrefab, launchOffSet.position, launchOffSet.rotation);
+            shootingDirection = -transform.right; //change the direction of thrown projectiles to left
+        }
+        
+        if (Input.GetButtonDown("Fire2"))
+        {
+            GameObject projectile = Instantiate(_playerProjectilePrefab, _launchOffSet.position, Quaternion.identity);
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            
+            rb.velocity = shootingDirection * _shootSpeed;
         }
     }
+    
 }
