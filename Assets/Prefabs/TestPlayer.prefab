@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6312323467323277962}
   m_Layer: 7
-  m_Name: SwordAttackPoint
+  m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 8700714581782451994}
   - component: {fileID: 1907068242728185599}
   - component: {fileID: 2359115466960919811}
+  - component: {fileID: 8457954104967029058}
   m_Layer: 7
   m_Name: TestPlayer
   m_TagString: Player
@@ -147,7 +148,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2426532097897497267
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -220,8 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d7a43062f330344ad429c93197a99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _damage: 10
+  maxHealth: 100
+  damage: 10
 --- !u!114 &2359115466960919811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,3 +240,18 @@ MonoBehaviour:
   _enemyLayers:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &8457954104967029058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170464479357264780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013e3d119e1ed6d48a3352bcbb1efbdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerProjectilePrefab: {fileID: 9089524238687466038, guid: 870858a52ef07744f9d8d4bad3e48610, type: 3}
+  _launchOffSet: {fileID: 6312323467323277962}
+  _shootSpeed: 10

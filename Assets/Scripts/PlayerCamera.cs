@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
@@ -11,7 +12,11 @@ public class PlayerCamera : MonoBehaviour
     }
 
     void Update () 
-    {        
+    {
+        if (_player.IsDestroyed())
+        {
+            return;
+        }
         transform.position = _player.transform.position + offset;
     }
     

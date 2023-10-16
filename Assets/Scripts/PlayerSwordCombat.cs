@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerCharacteristics))]
 public class PlayerSwordCombat : MonoBehaviour
 {
 
@@ -31,7 +31,7 @@ public class PlayerSwordCombat : MonoBehaviour
 
         foreach (var enemy in hitEnemyes)
         {
-            enemy.GetComponent<TestEnemyCharacteristics>().TakeDamage(_player._damage);
+            enemy.GetComponent<TestEnemyCharacteristics>().TakeDamage(_player.Damage);
             
         }
         
