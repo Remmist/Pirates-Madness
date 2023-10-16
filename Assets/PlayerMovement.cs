@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -25,6 +26,17 @@ public class PlayerMovement : MonoBehaviour
     {
         _xInput = Input.GetAxis("Horizontal");
 
+        //Here, the engine decides whether the player faces left or right
+        var playerTransform = transform;
+        if (_xInput > 0)
+        {
+            playerTransform.localScale = new Vector2(1, transform.localScale.y);
+        } else if (_xInput < 0)
+        {
+            playerTransform.localScale = new Vector2(-1, transform.localScale.y);
+        }
+
+        
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
             _performJump = true;
@@ -58,8 +70,7 @@ public class PlayerMovement : MonoBehaviour
             _performAirJump = false;
         }
     }
-
-
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
         _isGrounded = true;
