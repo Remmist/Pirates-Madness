@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class CannonProjectile : MonoBehaviour
 {
     [SerializeField] private float _speed;
     private Rigidbody2D _rb;
@@ -12,9 +12,7 @@ public class Projectile : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
     }
-
     
-    // Start is called before the first frame update
     private void Start()
     {
         _rb.velocity = transform.right * _speed;
@@ -22,7 +20,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || other.CompareTag("Player"))
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
@@ -37,4 +35,5 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    
 }
