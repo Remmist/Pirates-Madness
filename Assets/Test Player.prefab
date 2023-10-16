@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8378945034087095552}
   - component: {fileID: 2426532097897497267}
   - component: {fileID: 8700714581782451994}
+  - component: {fileID: 1815064711209579288}
   m_Layer: 7
   m_Name: Test Player
   m_TagString: Player
@@ -113,7 +114,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2426532097897497267
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -174,3 +175,18 @@ MonoBehaviour:
   _speed: 7
   _jumpForce: 12
   _maxAmountOfAirJumps: 1
+--- !u!114 &1815064711209579288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170464479357264780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad5966f4404243678f7e95756d74f62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerProjectilePrefab: {fileID: 9089524238687466038, guid: 7627b065b992e484aac2d6fb2c2a64d6, type: 3}
+  _launchOffSet: {fileID: 0}
+  _shootSpeed: 10
