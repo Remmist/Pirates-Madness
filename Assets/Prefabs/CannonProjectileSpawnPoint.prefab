@@ -98,3 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1210924376538402779, guid: b06d76443b4ce3240aa422eb9f77de29, type: 3}
+  cooldown: 2
