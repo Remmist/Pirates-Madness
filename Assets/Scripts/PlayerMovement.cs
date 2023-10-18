@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D _rb;
@@ -15,11 +15,14 @@ public class PlayerMovement : MonoBehaviour
     private int _counterAirJumps = 0;
     private bool _isAfterJump;
     private bool _performAirJump;
+
+    private SpriteRenderer _sr;
     
     
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -51,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         _rb.velocity = new Vector2(_xInput * _speed, _rb.velocity.y);
+        
+        // Flip();
 
         //Default Jump
         if (_performJump)
@@ -68,6 +73,18 @@ public class PlayerMovement : MonoBehaviour
             _performAirJump = false;
         }
     }
+
+    // private void Flip()
+    // {
+    //     if (_xInput > 0)
+    //     {
+    //         _sr.flipX = false;
+    //     }
+    //     else if (_xInput < 0)
+    //     {
+    //         _sr.flipX = true;
+    //     }
+    // }
 
 
     private void OnCollisionEnter2D(Collision2D other)
