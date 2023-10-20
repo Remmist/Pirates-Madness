@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -15,14 +16,17 @@ public class PlayerMovement : MonoBehaviour
     private int _counterAirJumps = 0;
     private bool _isAfterJump;
     private bool _performAirJump;
+    private bool _isFalling;
 
     private SpriteRenderer _sr;
+    private Animator _animator;
     
     
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -46,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && _isAfterJump && _counterAirJumps < _maxAmountOfAirJumps)
         {
+            _animator.SetBool("IsAirJumped", true);
             _performAirJump = true;
             _counterAirJumps++;
         }
@@ -55,6 +60,19 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.velocity = new Vector2(_xInput * _speed, _rb.velocity.y);
         
+        _animator.SetFloat("XInputAbs", Math.Abs(_xInput));
+
+        if (_rb.velocity.y < 0)
+        {
+            _isFalling = true;
+            _animator.SetBool("IsFalling", true);
+        }
+        else
+        {
+            _isFalling = false;
+            _animator.SetBool("IsFalling", false);
+
+        }
         // Flip();
 
         //Default Jump
@@ -64,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = false;
             _rb.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
             _isAfterJump = true;
+            _animator.SetBool("IsAfterJump", true);
         }
         
         //Air Jump (Double jump)
@@ -71,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
             _performAirJump = false;
+            _animator.SetBool("IsAirJumped", false);
         }
     }
 
@@ -89,13 +109,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.collider.CompareTag("Enemy"))
+        {
+            return;
+        }
         _isGrounded = true;
         _isAfterJump = false;
+        _animator.SetBool("IsGrounded", true);
+        _animator.SetBool("IsAfterJump", false);
         _counterAirJumps = 0;
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
+        if (other.collider.CompareTag("Enemy"))
+        {
+            return;
+        }
         _isGrounded = false;
+        _animator.SetBool("IsGrounded", false);
     }
 }
