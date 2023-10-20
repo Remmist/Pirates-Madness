@@ -9,17 +9,22 @@ public class PlayerSwordCombat : MonoBehaviour
     [SerializeField] private LayerMask _enemyLayers;
 
     private PlayerCharacteristics _player;
+    private Animator _animator;
 
 
     private void Awake()
     {
         _player = GetComponent<PlayerCharacteristics>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            System.Random rnd = new System.Random();
+            _animator.SetInteger("Attack", rnd.Next(100));
+            _animator.SetBool("IsAttacking", true);
             Attack();
         }
     }
@@ -35,7 +40,7 @@ public class PlayerSwordCombat : MonoBehaviour
             
         }
         
-        
+        _animator.SetBool("IsAttacking", false);
     }
     
     private void OnDrawGizmosSelected()
