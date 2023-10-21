@@ -7,6 +7,7 @@ public class PlayerSwordCombat : MonoBehaviour
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private float _attackRange = 0.5f;
     [SerializeField] private LayerMask _enemyLayers;
+    private bool _isAttacking;
 
     private PlayerCharacteristics _player;
     private Animator _animator;
@@ -22,9 +23,10 @@ public class PlayerSwordCombat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            _isAttacking = true;
             System.Random rnd = new System.Random();
-            _animator.SetInteger("Attack", rnd.Next(100));
-            _animator.SetBool("IsAttacking", true);
+            _animator.SetInteger("AttackIndex", rnd.Next(0,3));
+            _animator.SetTrigger("Attack");
             Attack();
         }
     }
@@ -39,8 +41,7 @@ public class PlayerSwordCombat : MonoBehaviour
             enemy.GetComponent<TestEnemyCharacteristics>().TakeDamage(_player.Damage);
             
         }
-        
-        _animator.SetBool("IsAttacking", false);
+        _isAttacking = false;
     }
     
     private void OnDrawGizmosSelected()

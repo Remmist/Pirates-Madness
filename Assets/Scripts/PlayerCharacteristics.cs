@@ -7,14 +7,17 @@ public class PlayerCharacteristics : MonoBehaviour
 
     private float _currentHealth;
 
+    private Animator _animator;
 
     private void Awake()
     {
         _currentHealth = maxHealth;
+        _animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(float takenDamage)
     {
+        _animator.SetTrigger("Hurt");
         _currentHealth -= takenDamage;
 
         if (_currentHealth <= 0)

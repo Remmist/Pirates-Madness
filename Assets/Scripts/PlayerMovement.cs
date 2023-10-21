@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 
-[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D _rb;
@@ -17,29 +17,37 @@ public class PlayerMovement : MonoBehaviour
     private bool _isAfterJump;
     private bool _performAirJump;
     private bool _isFalling;
-
-    private SpriteRenderer _sr;
+    private bool _isRunning;
+    
     private Animator _animator;
     
     
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _sr = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         _xInput = Input.GetAxis("Horizontal");
-        
+
+        if (_xInput == 0)
+        {
+            _isRunning = false;
+            _animator.SetBool("IsRunning", false);
+        }
         //Here, the engine decides whether the player faces left or right
         var playerTransform = transform;
         if (_xInput > 0)
         {
+            _isRunning = true;
+            _animator.SetBool("IsRunning", true);
             playerTransform.localScale = new Vector2(1, transform.localScale.y);
         } else if (_xInput < 0)
         {
+            _isRunning = true;
+            _animator.SetBool("IsRunning", true);
             playerTransform.localScale = new Vector2(-1, transform.localScale.y);
         }
 
@@ -73,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool("IsFalling", false);
 
         }
-        // Flip();
 
         //Default Jump
         if (_performJump)
@@ -93,18 +100,6 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool("IsAirJumped", false);
         }
     }
-
-    // private void Flip()
-    // {
-    //     if (_xInput > 0)
-    //     {
-    //         _sr.flipX = false;
-    //     }
-    //     else if (_xInput < 0)
-    //     {
-    //         _sr.flipX = true;
-    //     }
-    // }
 
 
     private void OnCollisionEnter2D(Collision2D other)
