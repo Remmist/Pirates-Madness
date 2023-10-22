@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         
         _animator.SetFloat("XInputAbs", Math.Abs(_xInput));
 
-        if (_rb.velocity.y < 0)
+        if (_rb.velocity.y < -0.5)
         {
             _isFalling = true;
             _animator.SetBool("IsFalling", true);

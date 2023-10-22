@@ -7,13 +7,17 @@ public class TestEnemyCharacteristics : MonoBehaviour
 
     private float _currentHealth;
 
+    private Animator _animator;
+
     private void Awake()
     {
         _currentHealth = _maxHealth;
+        _animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(float damage)
     {
+        _animator.SetTrigger("Hurt");
         _currentHealth -= damage;
 
         if (_currentHealth <= 0)
@@ -24,7 +28,8 @@ public class TestEnemyCharacteristics : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        _animator.SetTrigger("Dead");
+        // Destroy(gameObject);
         Debug.Log("Enemy die!");
     }
 }

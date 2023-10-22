@@ -28,7 +28,8 @@ public class PlayerCharacteristics : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        // Destroy(gameObject);
+        _animator.SetTrigger("Dead");
         Debug.Log("Player die!");
     }
 

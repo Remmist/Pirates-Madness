@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class KnifeProjectile : MonoBehaviour
 {
+    [SerializeField] private float _damage;
     private Rigidbody2D _rb;
     
     private void Awake()
@@ -15,7 +16,7 @@ public class KnifeProjectile : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             //Find new method how to get value from PlayerCharacteristics
-            other.GetComponent<TestEnemyCharacteristics>().TakeDamage(50);
+            other.GetComponent<TestEnemyCharacteristics>().TakeDamage(_damage);
             Destroy(gameObject);
         } else if (other.CompareTag("Ground"))
         {

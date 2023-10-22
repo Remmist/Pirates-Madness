@@ -3,6 +3,7 @@ using UnityEngine;
 public class CannonProjectile : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private float _damage;
     private Rigidbody2D _rb;
     
     private void Awake()
@@ -22,11 +23,11 @@ public class CannonProjectile : MonoBehaviour
             //Find new method how to get value from PlayerCharacteristics or TestEnemyCharacteristics
             if (other.CompareTag("Enemy"))
             {
-                other.GetComponent<TestEnemyCharacteristics>().TakeDamage(50);
+                other.GetComponent<TestEnemyCharacteristics>().TakeDamage(_damage);
             }
             else
             {
-                other.GetComponent<PlayerCharacteristics>().TakeDamage(50);
+                other.GetComponent<PlayerCharacteristics>().TakeDamage(_damage);
             }
             Destroy(gameObject);
         } else if (other.CompareTag("Ground"))

@@ -7,7 +7,9 @@ public class PlayerSwordCombat : MonoBehaviour
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private float _attackRange = 0.5f;
     [SerializeField] private LayerMask _enemyLayers;
+    [SerializeField] private float _attackRate = 2f;
     private bool _isAttacking;
+    private float _nextAttackTime = 0f;
 
     private PlayerCharacteristics _player;
     private Animator _animator;
@@ -21,13 +23,17 @@ public class PlayerSwordCombat : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Time.time >= _nextAttackTime)
         {
-            _isAttacking = true;
-            System.Random rnd = new System.Random();
-            _animator.SetInteger("AttackIndex", rnd.Next(0,3));
-            _animator.SetTrigger("Attack");
-            Attack();
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                _isAttacking = true;
+                System.Random rnd = new System.Random();
+                _animator.SetInteger("AttackIndex", rnd.Next(0,3));
+                _animator.SetTrigger("Attack");
+                Attack();
+                _nextAttackTime = Time.time + 1f / _attackRate;
+            }
         }
     }
 
