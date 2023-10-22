@@ -81,4 +81,10 @@ public class PlayerMovement : MonoBehaviour
     {
         _isGrounded = false;
     }
+
+    public float CurrentPlayerSpeed
+    {
+        get => _speed;
+        set => _speed = value;
+    }
 }
