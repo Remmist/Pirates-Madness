@@ -7,7 +7,6 @@ public class PlayerCharacteristics : MonoBehaviour
 
     private float _currentHealth;
 
-
     private void Awake()
     {
         _currentHealth = maxHealth;
@@ -33,5 +32,11 @@ public class PlayerCharacteristics : MonoBehaviour
     {
         get => damage;
         set => damage = value;
+    }
+
+    public float CurrentHealth
+    {
+        get => _currentHealth;
+        set => _currentHealth = value;
     }
 }
