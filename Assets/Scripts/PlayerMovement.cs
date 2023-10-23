@@ -124,4 +124,10 @@ public class PlayerMovement : MonoBehaviour
         _isGrounded = false;
         _animator.SetBool("IsGrounded", false);
     }
+
+    public float CurrentPlayerSpeed
+    {
+        get => _speed;
+        set => _speed = value;
+    }
 }
