@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4673055126743192316}
   - component: {fileID: 8894440716675600057}
   - component: {fileID: 1280611604545870542}
+  - component: {fileID: 9124077586295731924}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: Collectible
@@ -28,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2270387510936187955}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.46, y: -3.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &495424787514540795
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0, g: 0.9677515, b: 1, a: 1}
+  m_Sprite: {fileID: -939888026, guid: 2e15f9e6188608141b6c43fe39a55ce5, type: 3}
+  m_Color: {r: 0.2688679, g: 0.95332944, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,8 +123,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.7, y: 0.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -131,9 +132,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
+    - - {x: 0.35273993, y: 0.0056352615}
+      - {x: 0.35141158, y: 0.14383507}
+      - {x: 0.19441485, y: 0.30264235}
+      - {x: -0.1956985, y: 0.30303055}
+      - {x: -0.34556174, y: 0.14540052}
+      - {x: -0.3498206, y: 0.004978657}
+      - {x: -0.00082969666, y: -0.30557197}
   m_UseDelaunayMesh: 0
 --- !u!50 &8894440716675600057
 Rigidbody2D:
@@ -174,3 +179,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f8a52a6dbbba6438909377fb673cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &9124077586295731924
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270387510936187955}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 130ccf9ab1e720848bf9718952da0d88, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

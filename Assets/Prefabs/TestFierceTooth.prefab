@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3357478575425574943}
   - component: {fileID: 5650443207602304622}
   - component: {fileID: 6096640374543960394}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: TestFierceTooth
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.55, y: -1.73, z: 0}
-  m_LocalScale: {x: 1, y: 1.6958371, z: 1}
+  m_LocalScale: {x: 1.4012711, y: 1.4051579, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2971413216811560423}
@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2971413216811560423}
   - component: {fileID: 2922683300095153509}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Dead sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
