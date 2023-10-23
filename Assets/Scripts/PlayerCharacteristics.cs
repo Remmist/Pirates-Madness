@@ -38,4 +38,10 @@ public class PlayerCharacteristics : MonoBehaviour
         get => damage;
         set => damage = value;
     }
+
+    public float CurrentHealth
+    {
+        get => _currentHealth;
+        set => _currentHealth = value;
+    }
 }
