@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 
@@ -20,6 +21,13 @@ public class PlayerMovement : MonoBehaviour
     private bool _isRunning;
     
     private Animator _animator;
+
+    private bool _canDash = true;
+    private bool _isDashing;
+    [SerializeField] private float _dashPower = 24f;
+    [SerializeField] private float _dashCooldown = 1f;
+    [SerializeField] private float _dashTime = 0.2f;
+    
     
     
     private void Awake()
@@ -30,6 +38,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (_isDashing)
+        {
+            return;
+        }
         _xInput = Input.GetAxis("Horizontal");
 
         if (_xInput == 0)
@@ -62,10 +74,22 @@ public class PlayerMovement : MonoBehaviour
             _performAirJump = true;
             _counterAirJumps++;
         }
+
+
+        if (Input.GetKey(KeyCode.LeftShift) && _canDash)
+        {
+            _animator.SetTrigger("Dash");
+            StartCoroutine(Dash());
+        }
+        
     }
 
     private void FixedUpdate()
     {
+        if (_isDashing)
+        {
+            return;
+        }
         _rb.velocity = new Vector2(_xInput * _speed, _rb.velocity.y);
         
         _animator.SetFloat("XInputAbs", Math.Abs(_xInput));
@@ -79,7 +103,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _isFalling = false;
             _animator.SetBool("IsFalling", false);
-
         }
 
         //Default Jump
@@ -101,6 +124,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+    private IEnumerator Dash()
+    {
+        _canDash = false;
+        _isDashing = true;
+        float originalGravity = _rb.gravityScale;
+        _rb.gravityScale = 0f;
+        _rb.velocity = new Vector2(transform.localScale.x * _dashPower, 0f);
+        yield return new WaitForSeconds(_dashTime);
+        _rb.gravityScale = originalGravity;
+        _isDashing = false;
+        yield return new WaitForSeconds(_dashCooldown);
+        _canDash = true;
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
