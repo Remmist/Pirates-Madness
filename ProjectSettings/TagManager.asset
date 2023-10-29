@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Collectible
   - Projectile
+  - Crab
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Ground
   - Enemy
   - Player
-  - 
+  - Crab
   - 
   - 
   - 
@@ -43,6 +44,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2363002697
+    locked: 0
+  - name: Foreground
+    uniqueID: 2998058907
+    locked: 0
+  - name: Ground
+    uniqueID: 2040109629
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
