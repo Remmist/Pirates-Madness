@@ -13,16 +13,22 @@ public class PlayerSwordCombat : MonoBehaviour
 
     private PlayerCharacteristics _player;
     private Animator _animator;
+    private PlayerMovement _playerMovement;
 
 
     private void Awake()
     {
         _player = GetComponent<PlayerCharacteristics>();
         _animator = GetComponent<Animator>();
+        _playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void Update()
     {
+        if (_playerMovement._isDashing)
+        {
+            Attack(true);
+        }
         if (Time.time >= _nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -31,21 +37,28 @@ public class PlayerSwordCombat : MonoBehaviour
                 System.Random rnd = new System.Random();
                 _animator.SetInteger("AttackIndex", rnd.Next(0,3));
                 _animator.SetTrigger("Attack");
-                Attack();
+                Attack(false);
                 _nextAttackTime = Time.time + 1f / _attackRate;
             }
         }
     }
 
 
-    private void Attack()
+    private void Attack(bool dash)
     {
         Collider2D[] hitEnemyes = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemyLayers);
+        
 
         foreach (var enemy in hitEnemyes)
         {
-            enemy.GetComponent<TestEnemyCharacteristics>().TakeDamage(_player.Damage);
-            
+            if (dash)
+            {
+                enemy.GetComponent<TestEnemyCharacteristics>().TakeDamage(_player.Damage);
+            }
+            else
+            {
+                enemy.GetComponent<TestEnemyCharacteristics>().TakeDamage(_player.Damage);
+            }
         }
         _isAttacking = false;
     }
