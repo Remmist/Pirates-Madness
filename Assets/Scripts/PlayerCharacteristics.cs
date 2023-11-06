@@ -5,14 +5,17 @@ public class PlayerCharacteristics : MonoBehaviour
 {
 
     [SerializeField] private PlayerConfig _playerConfig;
-    [SerializeField] private float _currentHealth;
-    [SerializeField] private float _currentDamage;
+    private float _currentHealth;
+    private float _currentDamage;
+    private float _dashDamage;
     private Animator _animator;
 
     private void Awake()
     {
         _currentHealth = _playerConfig.BaseHealth;
         _currentDamage = _playerConfig.BaseDamage;
+        _dashDamage = _playerConfig.DashDamage;
+        
         _animator = GetComponent<Animator>();
     }
 
@@ -77,5 +80,11 @@ public class PlayerCharacteristics : MonoBehaviour
     {
         get => _currentHealth;
         set => _currentHealth = value;
+    }
+
+    public float DashDamage
+    {
+        get => _dashDamage;
+        set => _dashDamage = value;
     }
 }

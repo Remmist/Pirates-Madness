@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseHealth: 50
   MaxHealth: 100
+  BaseDamage: 10
+  MaxDamage: 20
+  DashDamage: 30
+  BaseSpeed: 7
+  MaxSpeed: 10

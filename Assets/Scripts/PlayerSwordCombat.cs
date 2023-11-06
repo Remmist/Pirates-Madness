@@ -51,9 +51,13 @@ public class PlayerSwordCombat : MonoBehaviour
 
         foreach (var enemy in hitEnemyes)
         {
+            if (!enemy.CompareTag("Enemy"))
+            {
+                continue;
+            }
             if (dash)
             {
-                enemy.GetComponent<TestEnemyCharacteristics>().TakeDamage(_player.Damage);
+                enemy.GetComponent<TestEnemyCharacteristics>().TakeDamage(_player.DashDamage);
             }
             else
             {

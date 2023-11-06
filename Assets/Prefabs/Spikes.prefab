@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5520060826107601421}
   - component: {fileID: 4632442103505800577}
   - component: {fileID: 3681825702427280796}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spikes
   m_TagString: Danger
   m_Icon: {fileID: 0}
@@ -205,3 +205,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageTime: 1
+  _damage: 20
