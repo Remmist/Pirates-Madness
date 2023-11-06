@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dee6c863eef64f4b89d53b1cfa10d41, type: 3}
+  m_Name: Speed Potion config
+  m_EditorClassIdentifier: 
+  Name: 
+  Description: Adds 5 Speed points
+  UISprite: {fileID: -62375907, guid: 696395b6b409f3d4b90e1a8175e65bc8, type: 3}
+  SpeedAmount: 5
