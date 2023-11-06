@@ -1044,6 +1044,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c2c84952f383d7468fc4af17c9aaf0b, type: 3}
+--- !u!1 &1607649401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 170464479357264780, guid: 87a3746096a68c0449120601ce8d3f23, type: 3}
+  m_PrefabInstance: {fileID: 983912732411110088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1607649410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607649401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9768a61665c3ab41a3de6879d61186d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keysCollected: 0
 --- !u!1001 &1607919676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1095,6 +1113,10 @@ PrefabInstance:
     - target: {fileID: 6320190615000733362, guid: 64489309ff2344a498defdd60c63e8f4, type: 3}
       propertyPath: m_Name
       value: HealthPotion
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320190615000733362, guid: 64489309ff2344a498defdd60c63e8f4, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1169,6 +1191,10 @@ PrefabInstance:
     - target: {fileID: 2270387510936187955, guid: 746f27ef3106a6a46961356b343f5f95, type: 3}
       propertyPath: m_Name
       value: Diamond
+      objectReference: {fileID: 0}
+    - target: {fileID: 2270387510936187955, guid: 746f27ef3106a6a46961356b343f5f95, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6883437316860711732, guid: 746f27ef3106a6a46961356b343f5f95, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3894,6 +3920,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1907068242728185599, guid: 87a3746096a68c0449120601ce8d3f23, type: 3}
+      propertyPath: _playerConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 026c5868360fbff49ba575e601012f0b, type: 2}
     - target: {fileID: 2359115466960919811, guid: 87a3746096a68c0449120601ce8d3f23, type: 3}
       propertyPath: _attackRate
       value: 3.5
@@ -3962,10 +3992,17 @@ PrefabInstance:
       propertyPath: _dashPower
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 8700714581782451994, guid: 87a3746096a68c0449120601ce8d3f23, type: 3}
+      propertyPath: _playerConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 026c5868360fbff49ba575e601012f0b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 170464479357264780, guid: 87a3746096a68c0449120601ce8d3f23, type: 3}
+      insertIndex: 8
+      addedObject: {fileID: 1607649410}
   m_SourcePrefab: {fileID: 100100000, guid: 87a3746096a68c0449120601ce8d3f23, type: 3}
 --- !u!1001 &3410308974490329235
 PrefabInstance:
@@ -4247,9 +4284,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6168086227973035322, guid: 3aab23bb37ddb5a48857de08df0b8d4d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7582183462081432188, guid: 3aab23bb37ddb5a48857de08df0b8d4d, type: 3}
       propertyPath: m_Name
       value: Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582183462081432188, guid: 3aab23bb37ddb5a48857de08df0b8d4d, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
