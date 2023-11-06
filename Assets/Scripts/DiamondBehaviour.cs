@@ -11,5 +11,6 @@ public class DiamondBehaviour : CollectibleItem
     {
         _diamondCounter++;
         Debug.Log("Congratulations! You have collected " + _diamondCounter + " diamonds!");
+        Destroy(gameObject);
     }
 }
