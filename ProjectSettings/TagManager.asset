@@ -10,7 +10,6 @@ TagManager:
   - Collectible
   - Projectile
   - Crab
-  - Danger
   layers:
   - Default
   - TransparentFX
@@ -22,7 +21,7 @@ TagManager:
   - Enemy
   - Player
   - Crab
-  - Danger
+  - Collectible
   - 
   - 
   - 

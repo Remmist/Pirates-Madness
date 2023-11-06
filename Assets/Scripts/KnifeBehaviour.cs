@@ -10,5 +10,6 @@ public class KnifeBehaviour : CollectibleItem
     {
         _knifeCounter++;
         Debug.Log("You have collected " + _knifeCounter + " knives!");
+        Destroy(gameObject);
     }
 }

@@ -4,17 +4,14 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class CollectibleItem : MonoBehaviour
+[RequireComponent(typeof(Collider2D))]
+public abstract class CollectibleItem : MonoBehaviour
 {
 
-    protected virtual void CollectBehaviour() { }
+    protected abstract void CollectBehaviour();
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            CollectBehaviour();
-            Destroy(gameObject);
-        }
+        CollectBehaviour();
     }
 }

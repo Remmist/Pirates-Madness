@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7329616493558000252}
   - component: {fileID: 1743553522230043178}
   - component: {fileID: 3087243491826460150}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StrengthPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e199e1776a8140d499f094893ab54a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageAdded: 10
+  _strengthPotionConfig: {fileID: 11400000, guid: 857bb4976a49c7e43893b9ac864a204c, type: 2}
 --- !u!95 &3087243491826460150
 Animator:
   serializedVersion: 5

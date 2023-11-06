@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private float _xInput;
-    [SerializeField] private float _speed = 5;
+    [SerializeField] private PlayerConfig _playerConfig;
+    [SerializeField] private float _currentSpeed;
 
     private bool _performJump;
     private bool _isGrounded;
@@ -28,12 +29,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _dashCooldown = 1f;
     [SerializeField] private float _dashTime = 0.2f;
     
-    
-    
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _currentSpeed = _playerConfig.BaseSpeed;
     }
 
     private void Update()
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        _rb.velocity = new Vector2(_xInput * _speed, _rb.velocity.y);
+        _rb.velocity = new Vector2(_xInput * _currentSpeed, _rb.velocity.y);
         
         _animator.SetFloat("XInputAbs", Math.Abs(_xInput));
 
@@ -161,11 +161,27 @@ public class PlayerMovement : MonoBehaviour
         _isGrounded = false;
         _animator.SetBool("IsGrounded", false);
     }
+    
+    public void IncreaseSpeed(int speedAmount)
+    {
+        if (speedAmount < 0)
+        {
+            return;
+        }
+
+        if (_currentSpeed + speedAmount > _playerConfig.MaxSpeed)
+        {
+            _currentSpeed = _playerConfig.MaxSpeed;
+            return;
+        }
+
+        _currentSpeed += speedAmount;
+    }
 
     public float CurrentPlayerSpeed
     {
-        get => _speed;
-        set => _speed = value;
+        get => _currentSpeed;
+        set => _currentSpeed = value;
     }
 
     public bool IsDashing

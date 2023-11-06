@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8894440716675600057}
   - component: {fileID: 1280611604545870542}
   - component: {fileID: 9124077586295731924}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Diamond
   m_TagString: Collectible
   m_Icon: {fileID: 0}

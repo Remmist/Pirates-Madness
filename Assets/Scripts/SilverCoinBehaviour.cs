@@ -12,6 +12,7 @@ public class SilverCoinBehaviour : CollectibleItem
     {
         _silverCoinCounter++;
         Debug.Log("You have collected " + _silverCoinCounter + " silver coins!");
+        Destroy(gameObject);
     }
     
 }

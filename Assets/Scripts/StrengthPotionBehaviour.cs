@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class StrengthPotionBehaviour : CollectibleItem
 {
-
-    [SerializeField] private float _damageAdded;
+    [SerializeField] private StrengthPotionConfig _strengthPotionConfig;
     
     protected override void CollectBehaviour()
     {
         var playerCharacteristics = FindObjectOfType<PlayerCharacteristics>();
-
-        if (playerCharacteristics == null) return;
-        playerCharacteristics.Damage += _damageAdded;
+        
+        playerCharacteristics.IncreaseStrength(_strengthPotionConfig.StrengthAmount);
         Debug.Log("You have found a strength potion! Now You hit much harder!");
+        Destroy(gameObject);
     }
 }

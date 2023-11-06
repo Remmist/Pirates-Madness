@@ -11,5 +11,6 @@ public class GoldenCoins : CollectibleItem
     {
         _goldCoinCounter++;
         Debug.Log("You have collected " + _goldCoinCounter + " gold coins!");
+        Destroy(gameObject);
     }
 }

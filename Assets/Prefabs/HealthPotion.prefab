@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3187649791421194608}
   - component: {fileID: 8242805569032664047}
   - component: {fileID: 5427208084749445481}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HealthPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e57f24a40e554c4caf3450fd15f3a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthAdded: 50
+  _healthPotionConfig: {fileID: 11400000, guid: 64434373b8bed2c4786109525ed0b5f7, type: 2}
 --- !u!95 &5427208084749445481
 Animator:
   serializedVersion: 5

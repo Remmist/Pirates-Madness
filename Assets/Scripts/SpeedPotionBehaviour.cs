@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class SpeedPotionBehaviour : CollectibleItem
 {
-
-    [SerializeField] private float _speedAdded;
+    
+    [SerializeField] private SpeedPotionConfig _speedPotionConfig;
     
     protected override void CollectBehaviour()
     {
         var playerMovement = FindObjectOfType<PlayerMovement>();
-
-        if (playerMovement == null) return;
-        playerMovement.CurrentPlayerSpeed += _speedAdded;
+        
+        playerMovement.IncreaseSpeed(_speedPotionConfig.SpeedAmount);
         Debug.Log("You have found a speed potion!  Now You are much faster!");
+        Destroy(gameObject);
     }
 }
