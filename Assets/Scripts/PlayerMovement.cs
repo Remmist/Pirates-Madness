@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
 
     private bool _canDash = true;
-    public bool _isDashing;
+    private bool _isDashing;
     [SerializeField] private float _dashPower = 24f;
     [SerializeField] private float _dashCooldown = 1f;
     [SerializeField] private float _dashTime = 0.2f;
@@ -166,5 +166,11 @@ public class PlayerMovement : MonoBehaviour
     {
         get => _speed;
         set => _speed = value;
+    }
+
+    public bool IsDashing
+    {
+        get => _isDashing;
+        set => _isDashing = value;
     }
 }

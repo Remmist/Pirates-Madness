@@ -25,7 +25,7 @@ public class PlayerSwordCombat : MonoBehaviour
 
     private void Update()
     {
-        if (_playerMovement._isDashing)
+        if (_playerMovement.IsDashing)
         {
             Attack(true);
         }
