@@ -46,13 +46,13 @@ public class Spikes : MonoBehaviour
     private IEnumerator Damage(Collision2D obj)
     {
         _canDamage = false;
-        if (obj.otherCollider.CompareTag("Player"))
+        if (obj.collider.CompareTag("Player"))
         {
-           obj.otherCollider.GetComponent<PlayerCharacteristics>().TakeDamage(_damage); 
+           obj.collider.GetComponent<PlayerCharacteristics>().TakeDamage(_damage); 
         } 
-        else if (obj.otherCollider.CompareTag("Enemy"))
+        else if (obj.collider.CompareTag("Enemy"))
         {
-            obj.otherCollider.GetComponent<TestEnemyCharacteristics>().TakeDamage(_damage); 
+            obj.collider.GetComponent<TestEnemyCharacteristics>().TakeDamage(_damage); 
         }
         yield return new WaitForSeconds(_damageTime);
         _canDamage = true;
