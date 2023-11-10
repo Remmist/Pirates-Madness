@@ -11,6 +11,8 @@ TagManager:
   - Projectile
   - Crab
   - Danger
+  - BreakableWall
+  - BreakablePlatform
   layers:
   - Default
   - TransparentFX
@@ -23,8 +25,8 @@ TagManager:
   - Player
   - Crab
   - Collectible
-  - 
-  - 
+  - BreakableWall
+  - BreakablePlatform
   - 
   - 
   - 

@@ -7,8 +7,8 @@ public class PlayerSwordCombat : MonoBehaviour
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private float _attackRange = 0.5f;
     [SerializeField] private LayerMask _enemyLayers;
+    [SerializeField] private LayerMask _wallsLayers;
     [SerializeField] private float _attackRate = 2f;
-    private bool _isAttacking;
     private float _nextAttackTime = 0f;
 
     private PlayerCharacteristics _player;
@@ -33,7 +33,6 @@ public class PlayerSwordCombat : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                _isAttacking = true;
                 System.Random rnd = new System.Random();
                 _animator.SetInteger("AttackIndex", rnd.Next(0,3));
                 _animator.SetTrigger("Attack");
@@ -47,7 +46,12 @@ public class PlayerSwordCombat : MonoBehaviour
     private void Attack(bool dash)
     {
         Collider2D[] hitEnemyes = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemyLayers);
-        
+        Collider2D[] breakableWalls = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _wallsLayers);
+
+        foreach (var wall in breakableWalls)
+        {
+            wall.GetComponent<BreakableWall>().TakeDamage(_player.Damage);
+        }
 
         foreach (var enemy in hitEnemyes)
         {
@@ -64,7 +68,6 @@ public class PlayerSwordCombat : MonoBehaviour
                 enemy.GetComponent<TestEnemyCharacteristics>().TakeDamage(_player.Damage);
             }
         }
-        _isAttacking = false;
     }
     
     private void OnDrawGizmosSelected()

@@ -18,8 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private int _counterAirJumps = 0;
     private bool _isAfterJump;
     private bool _performAirJump;
-    private bool _isFalling;
-    private bool _isRunning;
     
     private Animator _animator;
 
@@ -46,19 +44,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (_xInput == 0)
         {
-            _isRunning = false;
             _animator.SetBool("IsRunning", false);
         }
         //Here, the engine decides whether the player faces left or right
         var playerTransform = transform;
         if (_xInput > 0)
         {
-            _isRunning = true;
             _animator.SetBool("IsRunning", true);
             playerTransform.localScale = new Vector2(1, transform.localScale.y);
         } else if (_xInput < 0)
         {
-            _isRunning = true;
             _animator.SetBool("IsRunning", true);
             playerTransform.localScale = new Vector2(-1, transform.localScale.y);
         }
@@ -96,12 +91,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (_rb.velocity.y < -0.5)
         {
-            _isFalling = true;
             _animator.SetBool("IsFalling", true);
         }
         else
         {
-            _isFalling = false;
             _animator.SetBool("IsFalling", false);
         }
 
@@ -141,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!other.collider.CompareTag("Ground"))
+        if (!(other.collider.CompareTag("Ground") || other.collider.CompareTag("BreakablePlatform")))
         {
             return;
         }
@@ -154,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.collider.CompareTag("Enemy"))
+        if (!(other.collider.CompareTag("Ground") || other.collider.CompareTag("BreakablePlatform")))
         {
             return;
         }
