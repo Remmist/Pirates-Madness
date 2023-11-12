@@ -477,7 +477,7 @@ Transform:
   m_GameObject: {fileID: 641878395}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.72, y: -5.99, z: 0}
+  m_LocalPosition: {x: 0.19, y: -5.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -495,6 +495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78421f4d6d3e8b14b9dac6225f590a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bounceForce: 25
+  trampolineRadius: 4
 --- !u!95 &641878402
 Animator:
   serializedVersion: 5
@@ -4216,8 +4218,16 @@ PrefabInstance:
       value: TestPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 2359115466960919811, guid: 87a3746096a68c0449120601ce8d3f23, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359115466960919811, guid: 87a3746096a68c0449120601ce8d3f23, type: 3}
       propertyPath: _wallsLayers.m_Bits
       value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426532097897497267, guid: 87a3746096a68c0449120601ce8d3f23, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4829106077352807342, guid: 87a3746096a68c0449120601ce8d3f23, type: 3}
       propertyPath: m_LocalPosition.x
