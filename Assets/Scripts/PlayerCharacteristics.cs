@@ -1,17 +1,21 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCharacteristics : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100;
-    [SerializeField] private float damage = 10;
 
+    [SerializeField] private PlayerConfig _playerConfig;
     private float _currentHealth;
-
+    private float _currentDamage;
+    private float _dashDamage;
     private Animator _animator;
 
     private void Awake()
     {
-        _currentHealth = maxHealth;
+        _currentHealth = _playerConfig.BaseHealth;
+        _currentDamage = _playerConfig.BaseDamage;
+        _dashDamage = _playerConfig.DashDamage;
+        
         _animator = GetComponent<Animator>();
     }
 
@@ -33,15 +37,54 @@ public class PlayerCharacteristics : MonoBehaviour
         Debug.Log("Player die!");
     }
 
+    public void Heal(int healAmount)
+    {
+        if (healAmount < 0)
+        {
+            return;
+        }
+
+        if (_currentHealth + healAmount > _playerConfig.MaxHealth)
+        {
+            _currentHealth = _playerConfig.MaxHealth;
+            return;
+        }
+
+        _currentHealth += healAmount;
+
+    }
+
+    public void IncreaseStrength(int strengthAmount)
+    {
+        if (strengthAmount < 0)
+        {
+            return;
+        }
+
+        if (_currentDamage + strengthAmount > _playerConfig.MaxDamage)
+        {
+            _currentDamage = _playerConfig.MaxDamage;
+            return;
+        }
+
+        _currentDamage += strengthAmount;
+    }
+
     public float Damage
     {
-        get => damage;
-        set => damage = value;
+        get => _currentDamage;
+        set => _currentDamage = value;
     }
 
     public float CurrentHealth
     {
         get => _currentHealth;
         set => _currentHealth = value;
+    }
+
+    public float DashDamage
+    {
+        get => _dashDamage;
+        set => _dashDamage = value;
     }
 }

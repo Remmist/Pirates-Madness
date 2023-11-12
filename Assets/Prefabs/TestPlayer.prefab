@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6312323467323277962}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,8 +47,9 @@ GameObject:
   - component: {fileID: 1907068242728185599}
   - component: {fileID: 2359115466960919811}
   - component: {fileID: 8457954104967029058}
+  - component: {fileID: 639387828516928257}
   - component: {fileID: 6084376795347715916}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: TestPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -110,8 +111,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 745906031
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -374620552, guid: 9c9f3ec3f87c92d44a8440c905e92f51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -183,7 +184,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00042247772, y: 0.00024837255}
+  m_Offset: {x: -0.37913203, y: 0.00024837255}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -194,7 +195,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8520284, y: 1.401002}
+  m_Size: {x: 1.0095077, y: 1.401002}
   m_EdgeRadius: 0
 --- !u!114 &8700714581782451994
 MonoBehaviour:
@@ -208,9 +209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca225be43cc552459b75f5171efd85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 8
+  _playerConfig: {fileID: 11400000, guid: 026c5868360fbff49ba575e601012f0b, type: 2}
+  _currentSpeed: 0
   _jumpForce: 12
   _maxAmountOfAirJumps: 1
+  _dashPower: 24
+  _dashCooldown: 1
+  _dashTime: 0.2
 --- !u!114 &1907068242728185599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,8 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d7a43062f330344ad429c93197a99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  damage: 10
+  _playerConfig: {fileID: 11400000, guid: 026c5868360fbff49ba575e601012f0b, type: 2}
 --- !u!114 &2359115466960919811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +245,8 @@ MonoBehaviour:
   _attackRange: 0.88
   _enemyLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 128
+  _attackRate: 3.5
 --- !u!114 &8457954104967029058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +262,19 @@ MonoBehaviour:
   _playerProjectilePrefab: {fileID: 9089524238687466038, guid: 870858a52ef07744f9d8d4bad3e48610, type: 3}
   _launchOffSet: {fileID: 6312323467323277962}
   _shootSpeed: 10
+--- !u!114 &639387828516928257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170464479357264780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9768a61665c3ab41a3de6879d61186d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keysCollected: 0
 --- !u!95 &6084376795347715916
 Animator:
   serializedVersion: 5
@@ -288,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6301399822678351976}
   - component: {fileID: 3036213842757717526}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Dead sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

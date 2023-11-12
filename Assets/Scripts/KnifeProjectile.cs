@@ -13,6 +13,12 @@ public class KnifeProjectile : MonoBehaviour
     //Collision conditions for player's projectiles
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("BreakableWall"))
+        {
+            other.GetComponent<BreakableWall>().TakeDamage(_damage);
+            Destroy(gameObject);
+            return;
+        }
         if (other.CompareTag("Enemy"))
         {
             //Find new method how to get value from PlayerCharacteristics

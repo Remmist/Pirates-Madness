@@ -10,6 +10,9 @@ TagManager:
   - Collectible
   - Projectile
   - Crab
+  - Danger
+  - BreakableWall
+  - BreakablePlatform
   layers:
   - Default
   - TransparentFX
@@ -21,9 +24,9 @@ TagManager:
   - Enemy
   - Player
   - Crab
-  - 
-  - 
-  - 
+  - Collectible
+  - BreakableWall
+  - BreakablePlatform
   - 
   - 
   - 
@@ -55,4 +58,13 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemy
+    uniqueID: 2286271285
+    locked: 0
+  - name: Player
+    uniqueID: 745906031
+    locked: 0
+  - name: UI
+    uniqueID: 2319330193
     locked: 0
