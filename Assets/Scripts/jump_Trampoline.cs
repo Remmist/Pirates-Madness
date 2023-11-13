@@ -5,7 +5,7 @@ using UnityEngine;
 public class Trampoline : MonoBehaviour
 {
     [SerializeField] private float bounceForce = 25f;
-    [SerializeField] private float trampolineRadius = 2.5f; // Новая переменная для радиуса трамплина
+    [SerializeField] private float trampolineRadius = 2.5f; 
 
     private Animator trampolineAnimator;
 
@@ -21,12 +21,11 @@ public class Trampoline : MonoBehaviour
             Vector2 trampolineCenter = transform.position;
             Vector2 playerPosition = collision.transform.position;
 
-            // Проверяем, находится ли игрок внутри радиуса трамплина
+          //czy znajduje sie player w radius
             if (Vector2.Distance(playerPosition, trampolineCenter) <= trampolineRadius)
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
                 
-                // Запускаем анимацию трамплина
                 trampolineAnimator.SetTrigger("BounceTrigger");
             }
         }
