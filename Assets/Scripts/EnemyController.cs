@@ -5,112 +5,68 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private float chaseSpeed;
-    [SerializeField] private float patrolSpeed;
-    [SerializeField] private float detectionRange;
-    [SerializeField] private float changeDirectionDelay = 1f;
-    [SerializeField] private float patrolRadius;
+    private Rigidbody2D _rigidbody;
 
-    [Header("Patrol Points")]
-    [SerializeField] private Transform pointA;
-    [SerializeField] private Transform pointB;
+    public float movementSpeed;
+    public float jumpForce;
 
-    private Rigidbody2D _rb;
-    private Vector2 _currentPoint;
-    private EnemyDetection _enemyDetection;
-    private float _lastDirectionChangeTime;
-    private Color _gizmosColor;
+    public Transform groundCheck;
+    public float groundCheckRadius = 0.1f;
+    public LayerMask groundLayer;
+    public Transform obstacleCheckPoint;
+    public float obstacleCheckRadius = 0.5f;
+    public LayerMask obstacleLayer;
+
     private bool _isGrounded;
+    private bool _isJumping;
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _enemyDetection = GetComponent<EnemyDetection>();
-        _currentPoint = pointB.position;
-        _lastDirectionChangeTime = Time.time;
-        
-        _enemyDetection.SetPatrolPoints(pointA.position, pointB.position);
-        _enemyDetection.SetDetectionRange(detectionRange);
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        bool playerDetected = _enemyDetection.DetectPlayer();
-
-        if (playerDetected)
-        {
-            Vector2 playerPosition = _enemyDetection.GetPlayerPosition();
-            ChasePlayer(playerPosition);
-        }
-        else
-        {
-            Patrol();
-        }
+        transform.Translate(Time.deltaTime * movementSpeed * transform.right);
         
-    }
-
-    private void Patrol()
-    {
-        if (Time.time - _lastDirectionChangeTime > changeDirectionDelay)
+        if (!_isJumping && !Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer))
         {
-            float distanceToA = Vector2.Distance(transform.position, _enemyDetection.GetPatrolPointA());
-            float distanceToB = Vector2.Distance(transform.position, _enemyDetection.GetPatrolPointB());
-            
-            if (distanceToA <= patrolRadius)
-            {
-                _currentPoint = _enemyDetection.GetPatrolPointB();
-                Flip();
-                _lastDirectionChangeTime = Time.time;
-            }
-            else if (distanceToB <= patrolRadius)
-            {
-                _currentPoint = _enemyDetection.GetPatrolPointA();
-                Flip();
-                _lastDirectionChangeTime = Time.time;
-            }
-
-            Vector2 moveDirection = (_currentPoint - (Vector2)transform.position).normalized;
-            _rb.velocity = moveDirection * patrolSpeed;
+            Flip();
         }
-    }
 
-    private void ChasePlayer(Vector2 targetPosition)
-    {
-        Vector2 directionToPlayer = (targetPosition - (Vector2)transform.position).normalized;
-        directionToPlayer.y = 0.0f;
-        _rb.velocity = directionToPlayer * chaseSpeed;
-
-        if (directionToPlayer.x > 0)
+        if (DetectObstacle())
         {
-            transform.localScale = new Vector2(-1, transform.localScale.y);
-        } else if (directionToPlayer.x < 0)
-        {
-            transform.localScale = new Vector2(1, transform.localScale.y);
+            Jump();
         }
-        
     }
 
     private void Flip()
     {
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+
+        movementSpeed *= -1;
     }
 
-    private void OnDrawGizmosSelected()
+    private bool DetectObstacle()
     {
-        _gizmosColor = Color.red;
-        Gizmos.color = _gizmosColor;
-        Gizmos.DrawWireSphere(pointA.position, 0.2f);
-        Gizmos.DrawWireSphere(pointB.position, 0.2f);
-        
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(pointA.position, patrolRadius);
-        Gizmos.DrawWireSphere(pointB.position, patrolRadius);
-        
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
-        
-        
+        Vector2 checkPosition = obstacleCheckPoint.position;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(checkPosition, obstacleCheckRadius, obstacleLayer);
+        return (colliders.Length > 0);
+    }
+
+    private void Jump()
+    {
+        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpForce);
+        _isJumping = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            _isJumping = false;
+        }
     }
 }
