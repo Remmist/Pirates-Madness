@@ -5,6 +5,7 @@ public class CannonProjectile : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _damage;
     private Rigidbody2D _rb;
+    [SerializeField] private GameObject _cannon;
     
     private void Awake()
     {
