@@ -1,39 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
+    [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private float bounceForce = 25f;
-    [SerializeField] private float trampolineRadius = 2.5f; 
+    [SerializeField] private float activateRadius = 2.5f;
+    
+    private Animator _animator;
 
-    private Animator trampolineAnimator;
 
-    private void Start()
+    private void Awake()
     {
-        // Получаем компонент Animator у трамплина
-        trampolineAnimator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
+
+    private void Update()
+    {
+        Collider2D[] obj = Physics2D.OverlapCircleAll(transform.position, activateRadius, _playerLayer);
+
+        if (obj.Any())
+        {
+            _animator.SetBool("IsOpen", true);
+        }
+        else
+        {
+            _animator.SetBool("IsOpen", false);
+        }
+    }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Vector2 trampolineCenter = transform.position;
-            Vector2 playerPosition = collision.transform.position;
-
-          //czy znajduje sie player w radius
-            if (Vector2.Distance(playerPosition, trampolineCenter) <= trampolineRadius)
-            {
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
-                
-                trampolineAnimator.SetTrigger("BounceTrigger");
-            }
+            collision.gameObject.GetComponent<Animator>().SetBool("IsGrounded", false);
+            collision.gameObject.GetComponent<Animator>().SetBool("IsAfterJump", true);
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
         }
     }
 
     private void OnDrawGizmosSelected()
     {
-        // Рисуем гизмос для отображения радиуса трамплина в редакторе
-        Gizmos.DrawWireSphere(transform.position, trampolineRadius);
+        Gizmos.DrawWireSphere(transform.position, activateRadius);
     }
 }

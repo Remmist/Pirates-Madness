@@ -128,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(_dashTime);
         _rb.gravityScale = originalGravity;
         _isDashing = false;
+        GetComponent<PlayerSwordCombat>().DashLimit = false;
         yield return new WaitForSeconds(_dashCooldown);
         _canDash = true;
     }

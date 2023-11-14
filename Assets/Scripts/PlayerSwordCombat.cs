@@ -10,10 +10,13 @@ public class PlayerSwordCombat : MonoBehaviour
     [SerializeField] private LayerMask _wallsLayers;
     [SerializeField] private float _attackRate = 2f;
     private float _nextAttackTime = 0f;
+    private bool _dashLimit;
 
     private PlayerCharacteristics _player;
     private Animator _animator;
     private PlayerMovement _playerMovement;
+
+    private float _attackLocalScale = 0f;
 
 
     private void Awake()
@@ -25,6 +28,7 @@ public class PlayerSwordCombat : MonoBehaviour
 
     private void Update()
     {
+        _attackLocalScale = transform.localScale.x;
         if (_playerMovement.IsDashing)
         {
             Attack(true);
@@ -45,6 +49,10 @@ public class PlayerSwordCombat : MonoBehaviour
 
     private void Attack(bool dash)
     {
+        if (_dashLimit)
+        {
+            return;
+        }
         Collider2D[] hitEnemyes = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemyLayers);
         Collider2D[] breakableWalls = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _wallsLayers);
 
@@ -62,6 +70,7 @@ public class PlayerSwordCombat : MonoBehaviour
             if (dash)
             {
                 enemy.GetComponent<TestEnemyCharacteristics>().TakeDamage(_player.DashDamage);
+                _dashLimit = true;
             }
             else
             {
@@ -79,6 +88,13 @@ public class PlayerSwordCombat : MonoBehaviour
         
         Gizmos.DrawWireSphere(_attackPoint.position, _attackRange);
     }
-    
-    
+
+
+    public float AttackLocalScale => _attackLocalScale;
+
+    public bool DashLimit
+    {
+        get => _dashLimit;
+        set => _dashLimit = value;
+    }
 }
