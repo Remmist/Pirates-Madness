@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
 public class PlayerCharacteristics : MonoBehaviour
@@ -9,18 +9,23 @@ public class PlayerCharacteristics : MonoBehaviour
     private float _currentDamage;
     private float _dashDamage;
     private Animator _animator;
+    private bool _isAlive;
 
     private void Awake()
     {
+        _isAlive = true;
         _currentHealth = _playerConfig.BaseHealth;
         _currentDamage = _playerConfig.BaseDamage;
         _dashDamage = _playerConfig.DashDamage;
-        
         _animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(float takenDamage)
     {
+        if (!_isAlive)
+        {
+            return;
+        }
         _animator.SetTrigger("Hurt");
         _currentHealth -= takenDamage;
 
@@ -33,6 +38,7 @@ public class PlayerCharacteristics : MonoBehaviour
     private void Die()
     {
         // Destroy(gameObject);
+        _isAlive = false;
         _animator.SetTrigger("Dead");
         Debug.Log("Player die!");
     }

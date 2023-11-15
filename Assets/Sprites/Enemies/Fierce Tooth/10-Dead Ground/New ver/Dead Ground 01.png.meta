@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 90bb90af9169a6e488641f820ce8d859
+guid: 145aa9c9cbd1f0346ad9ec21363b68ba
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dead Hit 02_0
+      name: Dead Ground 01_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 1
-        width: 22
-        height: 24
+        x: 6
+        y: 0
+        width: 25
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3c08ea4ffeef554cbe35c79d49b0cea
-      internalID: 387151655
+      spriteID: c37a5bcc17bb3db4da38d7c707a7ace0
+      internalID: -1821804396
       vertices: []
       indices: 
       edges: []
@@ -180,7 +180,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dead Hit 02_0: 387151655
+      Dead Ground 01_0: -1821804396
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

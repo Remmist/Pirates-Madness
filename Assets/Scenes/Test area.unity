@@ -232,6 +232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestCannon
       objectReference: {fileID: 0}
+    - target: {fileID: 9086970570005332171, guid: b857f8a86ef1ea54580534571f981eb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4468,11 +4472,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6882052270760133448, guid: 039f7fc1549a62c4b9f2d7106b72a664, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.79
+      value: 16.786
       objectReference: {fileID: 0}
     - target: {fileID: 6882052270760133448, guid: 039f7fc1549a62c4b9f2d7106b72a664, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.2
+      value: -4.139
       objectReference: {fileID: 0}
     - target: {fileID: 6882052270760133448, guid: 039f7fc1549a62c4b9f2d7106b72a664, type: 3}
       propertyPath: m_LocalPosition.z

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3357478575425574943}
   - component: {fileID: 5650443207602304622}
   - component: {fileID: 6096640374543960394}
+  - component: {fileID: 6603276016270597724}
   m_Layer: 7
   m_Name: TestFierceTooth
   m_TagString: Enemy
@@ -196,6 +197,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6603276016270597724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3514009988013875186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417463ab991bce449b9ee2c7b9b3e17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6027474657582487000
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +282,7 @@ SpriteRenderer:
   m_SortingLayerID: -2008696011
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1267791482, guid: 6e30f5479b762ba46a8d882bf60654aa, type: 3}
+  m_Sprite: {fileID: -1344695505, guid: 9222ca7b28edb4148aeba734ab63ab83, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
