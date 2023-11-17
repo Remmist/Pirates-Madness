@@ -8,10 +8,34 @@ public class StrengthPotionBehaviour : CollectibleItem
     
     protected override void CollectBehaviour()
     {
+        var inventory = FindObjectOfType<PlayerInventory>();
+
+        if (inventory.Items.Count >= 2)
+        {
+            Debug.Log("Cant collect - already 2 item in inventory");
+            return;
+        }
+
+        inventory.AddToInventory(this);
+
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+    }
+    
+    
+    
+    public override void UseItem()
+    {
+        StartCoroutine(PotionEffect());
+    }
+
+
+    private IEnumerator PotionEffect()
+    {
         var playerCharacteristics = FindObjectOfType<PlayerCharacteristics>();
-        
         playerCharacteristics.IncreaseStrength(_strengthPotionConfig.StrengthAmount);
-        Debug.Log("You have found a strength potion! Now You hit much harder!");
+        yield return new WaitForSeconds(_strengthPotionConfig.Duration);
+        playerCharacteristics.ReturnStrength();
         Destroy(gameObject);
     }
 }

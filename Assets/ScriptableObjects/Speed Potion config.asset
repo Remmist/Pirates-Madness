@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dee6c863eef64f4b89d53b1cfa10d41, type: 3}
   m_Name: Speed Potion config
   m_EditorClassIdentifier: 
-  Name: 
   Description: Adds 5 Speed points
   UISprite: {fileID: -62375907, guid: 696395b6b409f3d4b90e1a8175e65bc8, type: 3}
   SpeedAmount: 5
+  Duration: 30

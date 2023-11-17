@@ -37,6 +37,10 @@ public class TestEnemyCharacteristics : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (!IsAlive)
+        {
+            return;
+        }
         if ((_playerSwordCombat.AttackLocalScale < 0 && _enemyLocalScale > 0) ||
             (_playerSwordCombat.AttackLocalScale < 0 && _enemyLocalScale < 0))
         {

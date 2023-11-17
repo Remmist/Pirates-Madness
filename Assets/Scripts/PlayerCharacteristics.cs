@@ -7,6 +7,8 @@ public class PlayerCharacteristics : MonoBehaviour
     [SerializeField] private PlayerConfig _playerConfig;
     private float _currentHealth;
     private float _currentDamage;
+    private float _previousDamage;
+    private bool _isStrengthEffect;
     private float _dashDamage;
     private Animator _animator;
     private bool _isAlive;
@@ -67,6 +69,9 @@ public class PlayerCharacteristics : MonoBehaviour
             return;
         }
 
+        _isStrengthEffect = true;
+        _previousDamage = _currentDamage;
+
         if (_currentDamage + strengthAmount > _playerConfig.MaxDamage)
         {
             _currentDamage = _playerConfig.MaxDamage;
@@ -74,6 +79,12 @@ public class PlayerCharacteristics : MonoBehaviour
         }
 
         _currentDamage += strengthAmount;
+    }
+
+    public void ReturnStrength()
+    {
+        _isStrengthEffect = false;
+        _currentDamage = _previousDamage;
     }
 
     public float Damage
@@ -93,4 +104,6 @@ public class PlayerCharacteristics : MonoBehaviour
         get => _dashDamage;
         set => _dashDamage = value;
     }
+
+    public bool IsStrengthEffect => _isStrengthEffect;
 }

@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthPotionBehaviour : CollectibleItem
@@ -15,5 +13,10 @@ public class HealthPotionBehaviour : CollectibleItem
         playerCharacteristics.Heal(_healthPotionConfig.HealAmount);
         Debug.Log("You have found a health potion! " + _healthPotionConfig.HealAmount + " health points for You!");
         Destroy(gameObject);
+    }
+
+    public override void UseItem()
+    {
+        throw new NotImplementedException();
     }
 }

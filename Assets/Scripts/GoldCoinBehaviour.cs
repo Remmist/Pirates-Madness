@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GoldenCoins : CollectibleItem
@@ -12,5 +10,10 @@ public class GoldenCoins : CollectibleItem
         _goldCoinCounter++;
         Debug.Log("You have collected " + _goldCoinCounter + " gold coins!");
         Destroy(gameObject);
+    }
+
+    public override void UseItem()
+    {
+        throw new System.NotImplementedException();
     }
 }

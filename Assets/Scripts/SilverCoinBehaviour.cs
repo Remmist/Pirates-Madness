@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 public class SilverCoinBehaviour : CollectibleItem
 {
@@ -14,5 +11,9 @@ public class SilverCoinBehaviour : CollectibleItem
         Debug.Log("You have collected " + _silverCoinCounter + " silver coins!");
         Destroy(gameObject);
     }
-    
+
+    public override void UseItem()
+    {
+        throw new NotImplementedException();
+    }
 }

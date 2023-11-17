@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KnifeBehaviour : CollectibleItem
@@ -11,5 +9,10 @@ public class KnifeBehaviour : CollectibleItem
         _knifeCounter++;
         Debug.Log("You have collected " + _knifeCounter + " knives!");
         Destroy(gameObject);
+    }
+
+    public override void UseItem()
+    {
+        throw new System.NotImplementedException();
     }
 }

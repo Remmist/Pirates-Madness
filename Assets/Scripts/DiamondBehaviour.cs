@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DiamondBehaviour : CollectibleItem
@@ -12,5 +10,10 @@ public class DiamondBehaviour : CollectibleItem
         _diamondCounter++;
         Debug.Log("Congratulations! You have collected " + _diamondCounter + " diamonds!");
         Destroy(gameObject);
+    }
+
+    public override void UseItem()
+    {
+        throw new System.NotImplementedException();
     }
 }
