@@ -106,4 +106,6 @@ public class PlayerCharacteristics : MonoBehaviour
     }
 
     public bool IsStrengthEffect => _isStrengthEffect;
+
+    public PlayerConfig PlayerConfig => _playerConfig;
 }

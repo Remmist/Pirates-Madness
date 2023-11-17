@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,15 +7,21 @@ public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private int _keysCollected;
     private Queue<CollectibleItem> _items = new Queue<CollectibleItem>();
+    
+    [SerializeField] private SpeedPotionConfig _speedPotionConfig;
+    [SerializeField] private StrengthPotionConfig _strengthPotionConfig;
 
     private PlayerCharacteristics _playerCharacteristics;
     private PlayerMovement _playerMovement;
+
+    private PotionsBarsManager _potionsBarsManager;
 
 
     private void Awake()
     {
         _playerCharacteristics = GetComponent<PlayerCharacteristics>();
         _playerMovement = GetComponent<PlayerMovement>();
+        _potionsBarsManager = FindObjectOfType<PotionsBarsManager>();
     }
 
     public void AddToInventory(CollectibleItem item)
@@ -69,15 +74,64 @@ public class PlayerInventory : MonoBehaviour
             }
         }
 
+        Type tip = _items.ElementAt(pos).GetType();
+
         if (pos == 0)
-        {
+        { 
             _items.Dequeue().UseItem();
+
+            if (tip == typeof(SpeedPotionBehaviour))
+            {
+                if (_playerCharacteristics.IsStrengthEffect)
+                {
+                    _potionsBarsManager.ActivateSpeed("second", _speedPotionConfig.Duration);
+                }
+                else
+                {
+                    _potionsBarsManager.ActivateSpeed("first", _speedPotionConfig.Duration);
+                }
+            }
+            else
+            {
+                if (_playerMovement.IsSpeedEffect)
+                {
+                    _potionsBarsManager.ActivateStrenght("second", _strengthPotionConfig.Duration);
+                }
+                else
+                {
+                    _potionsBarsManager.ActivateStrenght("first", _strengthPotionConfig.Duration);
+                }
+            }
+                
         }
         else
         {
             var tmpItem = _items.Dequeue();
             _items.Dequeue().UseItem();
             _items.Enqueue(tmpItem);
+            
+            if (tip == typeof(SpeedPotionBehaviour))
+            {
+                if (_playerCharacteristics.IsStrengthEffect)
+                {
+                    _potionsBarsManager.ActivateSpeed("second", _speedPotionConfig.Duration);
+                }
+                else
+                {
+                    _potionsBarsManager.ActivateSpeed("first", _speedPotionConfig.Duration);
+                }
+            }
+            else
+            {
+                if (_playerMovement.IsSpeedEffect)
+                {
+                    _potionsBarsManager.ActivateStrenght("second", _strengthPotionConfig.Duration);
+                }
+                else
+                {
+                    _potionsBarsManager.ActivateStrenght("first", _strengthPotionConfig.Duration);
+                }
+            }
         }
     }
 
