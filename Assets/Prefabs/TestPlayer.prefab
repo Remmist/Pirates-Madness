@@ -210,7 +210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerConfig: {fileID: 11400000, guid: 026c5868360fbff49ba575e601012f0b, type: 2}
-  _currentSpeed: 0
   _jumpForce: 12
   _maxAmountOfAirJumps: 1
   _dashPower: 24
@@ -278,6 +277,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _keysCollected: 0
+  _goldCoins: 0
+  _silverCoins: 0
+  _daggersCounter: 3
+  _speedPotionConfig: {fileID: 11400000, guid: 0241b12900aafee40982b692da8f9bf5, type: 2}
+  _strengthPotionConfig: {fileID: 11400000, guid: 857bb4976a49c7e43893b9ac864a204c, type: 2}
 --- !u!95 &6084376795347715916
 Animator:
   serializedVersion: 5

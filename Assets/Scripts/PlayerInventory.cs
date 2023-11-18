@@ -6,6 +6,11 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private int _keysCollected;
+    [SerializeField] private int _goldCoins;
+    [SerializeField] private int _silverCoins;
+
+    [SerializeField] private int _daggersCounter;
+    
     private Queue<CollectibleItem> _items = new Queue<CollectibleItem>();
     
     [SerializeField] private SpeedPotionConfig _speedPotionConfig;
@@ -151,6 +156,25 @@ public class PlayerInventory : MonoBehaviour
         get => _keysCollected;
         set => _keysCollected = value;
     }
+
+    public int GoldCoins
+    {
+        get => _goldCoins;
+        set => _goldCoins = value;
+    }
+
+    public int SilverCoins
+    {
+        get => _silverCoins;
+        set => _silverCoins = value;
+    }
+
+    public int DaggersCounter
+    {
+        get => _daggersCounter;
+        set => _daggersCounter = value;
+    }
+
 
     public Queue<CollectibleItem> Items => _items;
 }
