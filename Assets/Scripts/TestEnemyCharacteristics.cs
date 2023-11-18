@@ -80,10 +80,16 @@ public class TestEnemyCharacteristics : MonoBehaviour
         _isAlive = false;
         _animator.SetBool("IsGrounded", false);
         _animator.SetTrigger("Dead");
+        var bar = GetComponent<EnemyHealtBar>();
+        bar.Die();
     }
 
     public bool IsAlive
     {
         get => _isAlive;
     }
+
+    public float CurrentHealth => _currentHealth;
+
+    public float MaxHealth => _maxHealth;
 }
