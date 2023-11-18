@@ -628,6 +628,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 1347149569666087581, guid: 10deb0d0ba7abe04db728830c97eb979, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6038075464115205614, guid: 10deb0d0ba7abe04db728830c97eb979, type: 3}
       propertyPath: followingTarget
       value: 
