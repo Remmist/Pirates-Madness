@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    private DashManager _dashManager;
+    
     private Rigidbody2D _rb;
     private float _xInput;
     [SerializeField] private PlayerConfig _playerConfig;
@@ -34,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _currentSpeed = _playerConfig.BaseSpeed;
+        _dashManager = FindObjectOfType<DashManager>();
     }
 
     private void Update()
@@ -122,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        _dashManager.ResetIcon();
         _canDash = false;
         _isDashing = true;
         float originalGravity = _rb.gravityScale;
@@ -131,6 +135,7 @@ public class PlayerMovement : MonoBehaviour
         _rb.gravityScale = originalGravity;
         _isDashing = false;
         GetComponent<PlayerSwordCombat>().DashLimit = false;
+        _dashManager.Reload();
         yield return new WaitForSeconds(_dashCooldown);
         _canDash = true;
     }
@@ -195,6 +200,8 @@ public class PlayerMovement : MonoBehaviour
         get => _isDashing;
         set => _isDashing = value;
     }
+
+    public float DashCooldown => _dashCooldown;
 
     public bool IsSpeedEffect => _isSpeedEffect;
 }
