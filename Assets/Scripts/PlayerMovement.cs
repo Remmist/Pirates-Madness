@@ -9,7 +9,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private float _xInput;
     [SerializeField] private PlayerConfig _playerConfig;
-    [SerializeField] private float _currentSpeed;
+    private float _currentSpeed;
+    private float _previousSpeed;
+    private bool _isSpeedEffect;
 
     private bool _performJump;
     private bool _isGrounded;
@@ -128,12 +130,14 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(_dashTime);
         _rb.gravityScale = originalGravity;
         _isDashing = false;
+        GetComponent<PlayerSwordCombat>().DashLimit = false;
         yield return new WaitForSeconds(_dashCooldown);
         _canDash = true;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+
         if (!(other.collider.CompareTag("Ground") || other.collider.CompareTag("BreakablePlatform")))
         {
             return;
@@ -162,6 +166,9 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        _isSpeedEffect = true;
+        _previousSpeed = _currentSpeed;
+
         if (_currentSpeed + speedAmount > _playerConfig.MaxSpeed)
         {
             _currentSpeed = _playerConfig.MaxSpeed;
@@ -169,6 +176,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _currentSpeed += speedAmount;
+    }
+
+    public void ReturnSpeed()
+    {
+        _isSpeedEffect = false;
+        _currentSpeed = _previousSpeed;
     }
 
     public float CurrentPlayerSpeed
@@ -182,4 +195,6 @@ public class PlayerMovement : MonoBehaviour
         get => _isDashing;
         set => _isDashing = value;
     }
+
+    public bool IsSpeedEffect => _isSpeedEffect;
 }

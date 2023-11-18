@@ -1,16 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GoldenCoins : CollectibleItem
 {
-
-    private static int _goldCoinCounter;
     
     protected override void CollectBehaviour()
     {
-        _goldCoinCounter++;
-        Debug.Log("You have collected " + _goldCoinCounter + " gold coins!");
+        var inventory = FindObjectOfType<PlayerInventory>();
+        var counter = FindObjectOfType<GoldCoinManager>();
+        inventory.GoldCoins++;
+        counter.UpdateCounter(inventory.GoldCoins);
         Destroy(gameObject);
+    }
+
+    public override void UseItem()
+    {
+        throw new System.NotImplementedException();
     }
 }

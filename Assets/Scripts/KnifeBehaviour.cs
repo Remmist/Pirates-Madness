@@ -1,15 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KnifeBehaviour : CollectibleItem
 {
-    private static int _knifeCounter;
-    
     protected override void CollectBehaviour()
     {
-        _knifeCounter++;
-        Debug.Log("You have collected " + _knifeCounter + " knives!");
+        var inventory = FindObjectOfType<PlayerInventory>();
+
+        if (inventory.DaggersCounter >= 3)
+        {
+            return;
+        }
+        
+        inventory.DaggersCounter++;
         Destroy(gameObject);
+    }
+
+    public override void UseItem()
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KeyBehaviour : CollectibleItem
@@ -19,7 +17,9 @@ public class KeyBehaviour : CollectibleItem
         Destroy(gameObject);
 
     }
-    
-    
-    
+
+    public override void UseItem()
+    {
+        throw new System.NotImplementedException();
+    }
 }

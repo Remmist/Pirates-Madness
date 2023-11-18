@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ChestBehaviour : CollectibleItem
@@ -36,5 +34,10 @@ public class ChestBehaviour : CollectibleItem
         {
             Debug.Log("You need a key to open this chest.");
         }
+    }
+
+    public override void UseItem()
+    {
+        throw new NotImplementedException();
     }
 }

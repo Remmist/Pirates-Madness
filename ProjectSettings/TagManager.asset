@@ -13,6 +13,7 @@ TagManager:
   - Danger
   - BreakableWall
   - BreakablePlatform
+  - Trampoline
   layers:
   - Default
   - TransparentFX
@@ -64,6 +65,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 745906031
+    locked: 0
+  - name: Palm
+    uniqueID: 3263605899
     locked: 0
   - name: UI
     uniqueID: 2319330193

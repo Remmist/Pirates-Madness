@@ -9,20 +9,27 @@ public class PlayerKnifeCombat : MonoBehaviour
 
     private void Update()
     {
-        
-        Vector2 shootingDirection = transform.right;
-
-        if (transform.localScale.x < 0) // If the character faces left
-        {
-            shootingDirection = -transform.right; //change the direction of thrown projectiles to left
-        }
-        
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
+            var inventory = FindObjectOfType<PlayerInventory>();
+
+            if (inventory.DaggersCounter <= 0)
+            {
+                return;
+            }
+            Vector2 shootingDirection = transform.right;
+
+            if (transform.localScale.x < 0) // If the character faces left
+            {
+                shootingDirection = -transform.right; //change the direction of thrown projectiles to left
+            }
+            
             GameObject projectile = Instantiate(_playerProjectilePrefab, _launchOffSet.position, Quaternion.identity);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             
             rb.velocity = shootingDirection * _shootSpeed;
+
+            inventory.DaggersCounter--;
         }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 783450967450286266}
   - component: {fileID: 6137886767109124304}
   - component: {fileID: 6356432963135225614}
+  - component: {fileID: 7417249957499952514}
   - component: {fileID: 212787865944441681}
   - component: {fileID: 2759328097827744705}
   m_Layer: 7
@@ -100,10 +101,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -128,6 +129,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  _repulsionForce: 500
+--- !u!114 &7417249957499952514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419140965827098214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417463ab991bce449b9ee2c7b9b3e17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &212787865944441681
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -183,7 +197,7 @@ Animator:
   m_GameObject: {fileID: 7419140965827098214}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 505173cea42def247b6c9e4aae2172d6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 76f8424fefac2eb4cb1753e689074411, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

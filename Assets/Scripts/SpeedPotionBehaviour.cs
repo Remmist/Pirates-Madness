@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpeedPotionBehaviour : CollectibleItem
@@ -9,10 +8,32 @@ public class SpeedPotionBehaviour : CollectibleItem
     
     protected override void CollectBehaviour()
     {
+        var inventory = FindObjectOfType<PlayerInventory>();
+
+        if (inventory.Items.Count >= 2)
+        {
+            Debug.Log("Cant collect - already 2 item in inventory");
+            return;
+        }
+
+        inventory.AddToInventory(this);
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    public override void UseItem()
+    {
+        StartCoroutine(PotionEffect());
+    }
+
+
+    private IEnumerator PotionEffect()
+    {
         var playerMovement = FindObjectOfType<PlayerMovement>();
-        
         playerMovement.IncreaseSpeed(_speedPotionConfig.SpeedAmount);
-        Debug.Log("You have found a speed potion!  Now You are much faster!");
+        yield return new WaitForSeconds(_speedPotionConfig.Duration);
+        playerMovement.ReturnSpeed();
         Destroy(gameObject);
     }
+    
 }

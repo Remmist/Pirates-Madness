@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 703412390721005828}
   - component: {fileID: 5780041448777284053}
   - component: {fileID: 5520060826107601421}
-  - component: {fileID: 4632442103505800577}
   - component: {fileID: 3681825702427280796}
+  - component: {fileID: 923677618917503505}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Danger
@@ -114,8 +114,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &4632442103505800577
-PolygonCollider2D:
+--- !u!114 &3681825702427280796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7008674484463710763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d497dcf20e43c5459ca22c06beae550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 20
+--- !u!61 &923677618917503505
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -156,53 +169,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.62538314, y: 0.35072422}
-      - {x: 0.57618356, y: 0.34901237}
-      - {x: 0.52496517, y: 0.30099526}
-      - {x: 0.47365034, y: 0.20128441}
-      - {x: 0.42487383, y: 0.09998798}
-      - {x: 0.37587476, y: 0.00094136596}
-      - {x: 0.32659853, y: 0.101005554}
-      - {x: 0.27463484, y: 0.199471}
-      - {x: 0.22408128, y: 0.25018454}
-      - {x: 0.175, y: 0.2505974}
-      - {x: 0.122921824, y: 0.19998455}
-      - {x: 0.0743835, y: 0.10010195}
-      - {x: 0.024089813, y: 0.0027799606}
-      - {x: -0.022550821, y: 0.1509409}
-      - {x: -0.12438822, y: 0.3514738}
-      - {x: -0.17832923, y: 0.39929962}
-      - {x: -0.22509247, y: 0.39916316}
-      - {x: -0.27617478, y: 0.35092306}
-      - {x: -0.32337427, y: 0.24983692}
-      - {x: -0.3764994, y: 0.15028763}
-      - {x: -0.3785224, y: 0.00020694733}
-      - {x: -0.42552733, y: -0.09868288}
-      - {x: -0.5250778, y: 0.097007275}
-      - {x: -0.5758817, y: 0.15279913}
-      - {x: -0.6241185, y: 0.15167657}
-      - {x: -0.6780462, y: 0.100170135}
-      - {x: -0.70723367, y: 0.052609444}
-      - {x: -0.7773044, y: -0.09994793}
-      - {x: -0.77500004, y: -0.4}
-      - {x: 0.77500004, y: -0.4}
-      - {x: 0.7746221, y: 0.100094795}
-      - {x: 0.72481066, y: 0.19962102}
-      - {x: 0.6748105, y: 0.29962102}
-  m_UseDelaunayMesh: 0
---- !u!114 &3681825702427280796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7008674484463710763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d497dcf20e43c5459ca22c06beae550, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageTime: 1
-  _damage: 20
+  serializedVersion: 2
+  m_Size: {x: 1.55, y: 0.8}
+  m_EdgeRadius: 0
