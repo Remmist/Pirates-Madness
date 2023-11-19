@@ -42,11 +42,7 @@ public class PlayerInventory : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (_items.Count == 1)
-            {
-                UseSlot(0);
-            }
-            else
+            if (_items.Count == 2)
             {
                 UseSlot(1);
             }
