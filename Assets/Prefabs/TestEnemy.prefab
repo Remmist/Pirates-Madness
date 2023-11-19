@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6114745216805382267}
   - component: {fileID: 3357478575425574943}
   - component: {fileID: 5650443207602304622}
+  - component: {fileID: 1445714896561853123}
   m_Layer: 8
   m_Name: TestEnemy
   m_TagString: Enemy
@@ -172,3 +173,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 20
+--- !u!114 &1445714896561853123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3514009988013875186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005c28cfa6e0fe24e92370a2d28dc5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  jumpForce: 0
+  groundCheck: {fileID: 0}
+  groundCheckRadius: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleCheckPoint: {fileID: 0}
+  obstacleCheckRadius: 0.5
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
