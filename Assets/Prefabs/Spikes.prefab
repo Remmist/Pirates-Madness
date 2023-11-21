@@ -112,7 +112,6 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-<<<<<<<< HEAD:Assets/Prefabs/Spikes.prefab
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &3681825702427280796
@@ -129,11 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 20
 --- !u!61 &923677618917503505
-========
-  m_CollisionDetection: 1
-  m_Constraints: 4
---- !u!61 &2426532097897497267
->>>>>>>> Aiming_With_Trajectory:Assets/Prefabs/Test Player.prefab
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-<<<<<<< HEAD
   - PlayerCamera
   - Enemy
   - Collectible
@@ -15,9 +14,6 @@ TagManager:
   - BreakableWall
   - BreakablePlatform
   - Trampoline
-=======
-  - Enemy
->>>>>>> Aiming_With_Trajectory
   layers:
   - Default
   - TransparentFX

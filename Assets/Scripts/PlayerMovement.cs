@@ -1,15 +1,11 @@
 using System;
-<<<<<<< HEAD
 using System.Collections;
-=======
->>>>>>> Aiming_With_Trajectory
 using UnityEngine;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-<<<<<<< HEAD
     private DashManager _dashManager;
     
     private Rigidbody2D _rb;
@@ -19,11 +15,6 @@ public class PlayerMovement : MonoBehaviour
     private float _currentSpeed;
     private float _previousSpeed;
     private bool _isSpeedEffect;
-=======
-    private Rigidbody2D _rb;
-    private float _xInput;
-    [SerializeField] private float _speed = 5;
->>>>>>> Aiming_With_Trajectory
 
     private bool _performJump;
     private bool _isGrounded;
@@ -33,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     private bool _isAfterJump;
     private bool _performAirJump;
     
-<<<<<<< HEAD
     private Animator _animator;
 
     private bool _canDash = true;
@@ -49,16 +39,10 @@ public class PlayerMovement : MonoBehaviour
         _characteristics = GetComponent<PlayerCharacteristics>();
         _currentSpeed = _playerConfig.BaseSpeed;
         _dashManager = FindObjectOfType<DashManager>();
-=======
-    private void Awake()
-    {
-        _rb = GetComponent<Rigidbody2D>();
->>>>>>> Aiming_With_Trajectory
     }
 
     private void Update()
     {
-<<<<<<< HEAD
         if (!_characteristics.IsAlive)
         {
             _rb.velocity = new Vector2(0 , 0);
@@ -75,15 +59,10 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetBool("IsRunning", false);
         }
-=======
-        _xInput = Input.GetAxis("Horizontal");
-
->>>>>>> Aiming_With_Trajectory
         //Here, the engine decides whether the player faces left or right
         var playerTransform = transform;
         if (_xInput > 0)
         {
-<<<<<<< HEAD
             _animator.SetBool("IsRunning", true);
             playerTransform.localScale = new Vector2(1, transform.localScale.y);
         } else if (_xInput < 0)
@@ -92,33 +71,18 @@ public class PlayerMovement : MonoBehaviour
             playerTransform.localScale = new Vector2(-1, transform.localScale.y);
         }
 
-=======
-            playerTransform.localScale = new Vector2(1, transform.localScale.y);
-        } else if (_xInput < 0)
-        {
-            playerTransform.localScale = new Vector2(-1, transform.localScale.y);
-        }
-
-        
->>>>>>> Aiming_With_Trajectory
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
             _performJump = true;
         }
 
-<<<<<<< HEAD
         if (Input.GetButtonDown("Jump") && _isAfterJump && _counterAirJumps < _maxAmountOfAirJumps)
         {
             _animator.SetBool("IsAirJumped", true);
-=======
-        if (Input.GetButtonDown("Jump") && _isAfterJump)
-        {
->>>>>>> Aiming_With_Trajectory
             _performAirJump = true;
             _counterAirJumps++;
         }
 
-<<<<<<< HEAD
 
         if (Input.GetKey(KeyCode.LeftShift) && _canDash)
         {
@@ -126,13 +90,10 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Dash());
         }
         
-=======
->>>>>>> Aiming_With_Trajectory
     }
 
     private void FixedUpdate()
     {
-<<<<<<< HEAD
         if (!_characteristics.IsAlive)
         {
             _rb.velocity = new Vector2(0 , 0);
@@ -155,9 +116,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetBool("IsFalling", false);
         }
-=======
-        _rb.velocity = new Vector2(_xInput * _speed, _rb.velocity.y);
->>>>>>> Aiming_With_Trajectory
 
         //Default Jump
         if (_performJump)
@@ -166,10 +124,7 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = false;
             _rb.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
             _isAfterJump = true;
-<<<<<<< HEAD
             _animator.SetBool("IsAfterJump", true);
-=======
->>>>>>> Aiming_With_Trajectory
         }
         
         //Air Jump (Double jump)
@@ -177,7 +132,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
             _performAirJump = false;
-<<<<<<< HEAD
             _animator.SetBool("IsAirJumped", false);
         }
     }
@@ -211,21 +165,11 @@ public class PlayerMovement : MonoBehaviour
         _isAfterJump = false;
         _animator.SetBool("IsGrounded", true);
         _animator.SetBool("IsAfterJump", false);
-=======
-        }
-    }
-    
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        _isGrounded = true;
-        _isAfterJump = false;
->>>>>>> Aiming_With_Trajectory
         _counterAirJumps = 0;
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
-<<<<<<< HEAD
         if (!(other.collider.CompareTag("Ground") || other.collider.CompareTag("BreakablePlatform")))
         {
             return;
@@ -274,8 +218,4 @@ public class PlayerMovement : MonoBehaviour
     public float DashCooldown => _dashCooldown;
 
     public bool IsSpeedEffect => _isSpeedEffect;
-=======
-        _isGrounded = false;
-    }
->>>>>>> Aiming_With_Trajectory
 }
