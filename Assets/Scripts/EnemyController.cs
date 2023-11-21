@@ -27,6 +27,7 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _chaseDistance;
+    //[SerializeField] private float _StopChaseDistance;
     
     private bool _isGrounded;
     private bool _isJumping;
@@ -85,7 +86,12 @@ public class EnemyController : MonoBehaviour
             {
                 _isChasing = true;
             }
-            
+            /*
+            if (Vector2.Distance(transform.position, _playerTransform.position) > _StopChaseDistance)
+            {
+                _isChasing = false;
+            }
+            */
             if (patrolDestination == 0)
             {
                 transform.position = Vector2.MoveTowards(
@@ -148,9 +154,17 @@ public class EnemyController : MonoBehaviour
     
     private void OnDrawGizmosSelected()
     {
+        var position = transform.position;
+        
         _gizmosColor = Color.red;
         Gizmos.color = _gizmosColor;
-        Gizmos.DrawWireSphere(transform.position, _chaseDistance);
+        Gizmos.DrawWireSphere(position, _chaseDistance);
+        
+        /*
+        _gizmosColor = Color.green;
+        Gizmos.color = _gizmosColor;
+        Gizmos.DrawWireSphere(position, _StopChaseDistance);
+        */
         
         _gizmosColor = Color.white;
         Gizmos.color = _gizmosColor;
