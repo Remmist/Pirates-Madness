@@ -9,25 +9,27 @@ public class PlayerThrowProjectiles : PlayerProjectile
     //Variables for how the projectiles act when shoot by the player
     [SerializeField] private GameObject _playerProjectilePrefab;
     [SerializeField] private Transform _launchOffSet;
-    [SerializeField] private float _shootSpeed = 10f;
+    //[SerializeField] private TrajectoryRenderer _trajectoryRenderer;
 
     private void Update()
     {
         
-        Vector2 shootingDirection = transform.right;
-
-        if (transform.localScale.x < 0) // If the character faces left
-        {
-            shootingDirection = -transform.right; //change the direction of thrown projectiles to left
-        }
-        
         if (Input.GetButtonDown("Fire2"))
         {
-            GameObject projectile = Instantiate(_playerProjectilePrefab, _launchOffSet.position, Quaternion.identity);
+            //_trajectoryRenderer.InitializeTrajectory(_launchOffSet.position, shootingDirection, _shootSpeed);
+            //_trajectoryRenderer.ShowTrajectory();        
+        }
+        
+        if (Input.GetButtonUp("Fire2"))
+        {
+            //_trajectoryRenderer.HideTrajectory();
+            
+            var position = _launchOffSet.position;
+            GameObject projectile = Instantiate(_playerProjectilePrefab, position, Quaternion.identity);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             
-            rb.velocity = shootingDirection * _shootSpeed;
         }
+        
     }
     
 }
