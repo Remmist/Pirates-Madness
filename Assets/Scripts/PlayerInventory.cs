@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private int _keysCollected;
     [SerializeField] private int _goldCoins;
     [SerializeField] private int _silverCoins;
+    [SerializeField] private int _diamonds;
 
     [SerializeField] private int _daggersCounter;
     
@@ -169,6 +170,12 @@ public class PlayerInventory : MonoBehaviour
     {
         get => _daggersCounter;
         set => _daggersCounter = value;
+    }
+
+    public int Diamonds
+    {
+        get => _diamonds;
+        set => _diamonds = value;
     }
 
 

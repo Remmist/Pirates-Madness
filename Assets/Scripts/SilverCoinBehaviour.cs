@@ -6,7 +6,6 @@ public class SilverCoinBehaviour : CollectibleItem
     protected override void CollectBehaviour()
     {
         var inventory = FindObjectOfType<PlayerInventory>();
-
         inventory.SilverCoins++;
         Destroy(gameObject);
     }

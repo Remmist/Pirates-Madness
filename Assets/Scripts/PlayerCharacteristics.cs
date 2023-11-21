@@ -39,10 +39,8 @@ public class PlayerCharacteristics : MonoBehaviour
 
     private void Die()
     {
-        // Destroy(gameObject);
         _isAlive = false;
         _animator.SetTrigger("Dead");
-        Debug.Log("Player die!");
     }
 
     public void Heal(int healAmount)
@@ -104,6 +102,8 @@ public class PlayerCharacteristics : MonoBehaviour
         get => _dashDamage;
         set => _dashDamage = value;
     }
+
+    public bool IsAlive => _isAlive;
 
     public bool IsStrengthEffect => _isStrengthEffect;
 

@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private float _xInput;
     [SerializeField] private PlayerConfig _playerConfig;
+    private PlayerCharacteristics _characteristics;
     private float _currentSpeed;
     private float _previousSpeed;
     private bool _isSpeedEffect;
@@ -35,12 +36,19 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _characteristics = GetComponent<PlayerCharacteristics>();
         _currentSpeed = _playerConfig.BaseSpeed;
         _dashManager = FindObjectOfType<DashManager>();
     }
 
     private void Update()
     {
+        if (!_characteristics.IsAlive)
+        {
+            _rb.velocity = new Vector2(0 , 0);
+            return;
+        }
+        
         if (_isDashing)
         {
             return;
@@ -86,6 +94,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!_characteristics.IsAlive)
+        {
+            _rb.velocity = new Vector2(0 , 0);
+            return;
+        }
+        
         if (_isDashing)
         {
             return;

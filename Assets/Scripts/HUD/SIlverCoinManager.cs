@@ -1,7 +1,9 @@
-using TMPro;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class GoldCoinManager : MonoBehaviour
+public class SIlverCoinManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _counter;
     private PlayerInventory _inventory;
@@ -14,6 +16,6 @@ public class GoldCoinManager : MonoBehaviour
 
     private void Update()
     {
-        _counter.text = $"{_inventory.GoldCoins}";
+        _counter.text = $"{_inventory.SilverCoins}";
     }
 }
