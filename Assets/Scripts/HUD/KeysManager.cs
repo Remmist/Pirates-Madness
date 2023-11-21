@@ -1,7 +1,6 @@
-using TMPro;
 using UnityEngine;
-
-public class GoldCoinManager : MonoBehaviour
+using TMPro;
+public class KeysManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _counter;
     private PlayerInventory _inventory;
@@ -14,6 +13,6 @@ public class GoldCoinManager : MonoBehaviour
 
     private void Update()
     {
-        _counter.text = $"{_inventory.GoldCoins}";
+        _counter.text = $"{_inventory.KeysCollected}";
     }
 }

@@ -23,12 +23,12 @@ public class BreakableWall : MonoBehaviour
             return;
         }
         _currentHealth -= damage;
-        _animator.SetTrigger("Hit");
 
         if (_currentHealth <= 0)
         {
             DestroyWall();
         }
+        _animator.SetTrigger("Hit");
     }
 
 
