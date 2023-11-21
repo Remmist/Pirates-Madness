@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: a423af24a46ff954498ede44c2bec5c5
+=======
+guid: b21203d91d9f60646a1e60fb496045d0
+>>>>>>> Aiming_With_Trajectory
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

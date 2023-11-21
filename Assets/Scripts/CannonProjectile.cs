@@ -1,11 +1,21 @@
+<<<<<<< HEAD
+=======
+using System;
+using System.Collections;
+using System.Collections.Generic;
+>>>>>>> Aiming_With_Trajectory
 using UnityEngine;
 
 public class CannonProjectile : MonoBehaviour
 {
     [SerializeField] private float _speed;
+<<<<<<< HEAD
     [SerializeField] private float _damage;
     private Rigidbody2D _rb;
     [SerializeField] private GameObject _cannon;
+=======
+    private Rigidbody2D _rb;
+>>>>>>> Aiming_With_Trajectory
     
     private void Awake()
     {
@@ -21,6 +31,7 @@ public class CannonProjectile : MonoBehaviour
     {
         if (other.CompareTag("Enemy") || other.CompareTag("Player"))
         {
+<<<<<<< HEAD
             //Find new method how to get value from PlayerCharacteristics or TestEnemyCharacteristics
             if (other.CompareTag("Enemy"))
             {
@@ -30,6 +41,9 @@ public class CannonProjectile : MonoBehaviour
             {
                 other.GetComponent<PlayerCharacteristics>().TakeDamage(_damage);
             }
+=======
+            Destroy(other.gameObject);
+>>>>>>> Aiming_With_Trajectory
             Destroy(gameObject);
         } else if (other.CompareTag("Ground"))
         {
@@ -42,4 +56,8 @@ public class CannonProjectile : MonoBehaviour
     {
         Destroy(gameObject);
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> Aiming_With_Trajectory
 }

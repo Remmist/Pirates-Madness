@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 1106b3154a9691e4399ea1938ddc5be9
+=======
+guid: 9ecfd3438b58b274998cd1f3419dec1e
+>>>>>>> Aiming_With_Trajectory
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
