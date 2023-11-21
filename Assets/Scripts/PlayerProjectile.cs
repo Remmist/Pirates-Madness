@@ -12,6 +12,13 @@ public class PlayerProjectile : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        var velocity = _rb.velocity;
+        float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
     //Collision conditions for player's projectiles
     private void OnTriggerEnter2D(Collider2D other)
     {
