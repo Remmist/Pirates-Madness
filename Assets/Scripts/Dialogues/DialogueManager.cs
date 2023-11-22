@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TMP_Text _textComponent;
     [SerializeField] private float _textSpeed;
     
-    [SerializeField] private string[] _lines;
+    private string[] _lines;
 
     private int _index;
     private bool _isEnded;
@@ -80,5 +80,17 @@ public class DialogueManager : MonoBehaviour
             _textComponent.text = string.Empty;
             _dialogueCanvas.SetActive(false);
         }
+    }
+
+    public string[] Lines
+    {
+        get => _lines;
+        set => _lines = value;
+    }
+
+    public bool IsEnded
+    {
+        get => _isEnded;
+        set => _isEnded = value;
     }
 }

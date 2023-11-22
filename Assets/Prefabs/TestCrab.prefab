@@ -194,3 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueCanvas: {fileID: 0}
+  _lines:
+  - ' Test line 1'
+  - line 2
+  - line 3 end
