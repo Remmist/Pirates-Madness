@@ -28,7 +28,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _chaseDistance;
     //[SerializeField] private float _StopChaseDistance;
-    
+
+    private Animator _animator;
     
     private bool _isGrounded;
     private bool _isJumping;
@@ -38,6 +39,8 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _animator.SetBool("IsRunning", true);
     }
 
     private void Update()
