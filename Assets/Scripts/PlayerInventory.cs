@@ -177,7 +177,10 @@ public class PlayerInventory : MonoBehaviour
         get => _diamonds;
         set => _diamonds = value;
     }
-
-
-    public Queue<CollectibleItem> Items => _items;
+    
+    public Queue<CollectibleItem> Items
+    {
+        get => _items;
+        set => _items = value;
+    }
 }
