@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c77cde99acc7b6e4282515df4a31354d
-      internalID: -374620552
+      spriteID: c2587662db81f6548af7d65409201af5
+      internalID: 566568817
       vertices: []
       indices: 
       edges: []
@@ -180,7 +180,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle Sword 01_0: -374620552
+      Idle Sword 01_0: 566568817
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
