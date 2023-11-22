@@ -79154,6 +79154,18 @@ PrefabInstance:
       propertyPath: _dialogueCanvas
       value: 
       objectReference: {fileID: 956236687}
+    - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _lines.Array.data[0]
+      value: ' These are thorns, and I don''t have a sharp sword to cut through them.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _lines.Array.data[1]
+      value: ' You go ahead, and I''ll wait here.'
+      objectReference: {fileID: 0}
     - target: {fileID: 5046115906561636132, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
       propertyPath: m_FlipX
       value: 1
@@ -82768,71 +82780,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 703412390721005828, guid: 767c0a21f96245a4c8e05198c87117b4, type: 3}
   m_PrefabInstance: {fileID: 1507909155}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1509686329
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -313.92902
-      objectReference: {fileID: 0}
-    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 42.568962
-      objectReference: {fileID: 0}
-    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.07763961
-      objectReference: {fileID: 0}
-    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3962028069359033972, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_Name
-      value: TestCrab (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5046115906561636132, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5046115906561636132, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
 --- !u!4 &1516536562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1526864570334520842, guid: 117ba49ed27a08a4da1ee7f9bf779249, type: 3}
@@ -85465,6 +85412,22 @@ PrefabInstance:
       propertyPath: _dialogueCanvas
       value: 
       objectReference: {fileID: 956236687}
+    - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _lines.Array.data[0]
+      value: ' Oh, you''re still alive, great! My coin is up there. See it?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _lines.Array.data[1]
+      value: Fetch it with the help of the pink shell. It will toss you up high.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _lines.Array.data[2]
+      value: Fetch it with the help of the pink shell. It will toss you up high.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -87233,6 +87196,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5283353259735732754, guid: f3b1528de855a3b4b9182eaa1f95336a, type: 3}
   m_PrefabInstance: {fileID: 1367729266}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2110561183
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -313.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 42.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.07763961
+      objectReference: {fileID: 0}
+    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445864625268436605, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962028069359033972, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_Name
+      value: TestCrab (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _dialogueCanvas
+      value: 
+      objectReference: {fileID: 956236687}
+    - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _lines.Array.data[0]
+      value: '  Wow, you''re impressive! But even pirates need to pay for passage.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _lines.Array.data[1]
+      value: Go ahead, Captain, and don't forget your faithful guide!
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
 --- !u!4 &2115612538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6859600437562787877, guid: 99b6c03a73dc45d43913764dc6dbdc4d, type: 3}
@@ -87436,7 +87472,7 @@ SceneRoots:
   - {fileID: 1902921007}
   - {fileID: 435468929}
   - {fileID: 1862807182}
-  - {fileID: 1509686329}
+  - {fileID: 2110561183}
   - {fileID: 1266935989}
   - {fileID: 138740757}
   - {fileID: 1702569380}
