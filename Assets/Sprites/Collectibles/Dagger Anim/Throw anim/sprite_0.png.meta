@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9c9f3ec3f87c92d44a8440c905e92f51
+guid: 9533ee295a6dc09459e84f39ba937083
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle Sword 01_0
+      name: sprite_0_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 8
-        width: 37
-        height: 28
+        x: 16
+        y: 12
+        width: 4
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2587662db81f6548af7d65409201af5
-      internalID: 566568817
+      spriteID: b36438727b4630b42ac398feb014d640
+      internalID: -1359504375
       vertices: []
       indices: 
       edges: []
@@ -180,7 +180,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle Sword 01_0: 566568817
+      sprite_0_0: -1359504375
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

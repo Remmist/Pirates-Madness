@@ -71,6 +71,7 @@ Transform:
   m_Children:
   - {fileID: 6312323467323277962}
   - {fileID: 6301399822678351976}
+  - {fileID: 5300247762947617179}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3286561756093138365
@@ -114,12 +115,12 @@ SpriteRenderer:
   m_SortingLayerID: 745906031
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -374620552, guid: 9c9f3ec3f87c92d44a8440c905e92f51, type: 3}
+  m_Sprite: {fileID: 566568817, guid: 9c9f3ec3f87c92d44a8440c905e92f51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.37, y: 0.28}
+  m_Size: {x: 1.85, y: 1.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -189,7 +190,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.85, y: 1.4}
-    newSize: {x: 0.37, y: 0.28}
+    newSize: {x: 1.85, y: 1.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -256,7 +257,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170464479357264780}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 013e3d119e1ed6d48a3352bcbb1efbdc, type: 3}
   m_Name: 
@@ -279,6 +280,7 @@ MonoBehaviour:
   _keysCollected: 0
   _goldCoins: 0
   _silverCoins: 0
+  _diamonds: 0
   _daggersCounter: 3
   _speedPotionConfig: {fileID: 11400000, guid: 0241b12900aafee40982b692da8f9bf5, type: 2}
   _strengthPotionConfig: {fileID: 11400000, guid: 857bb4976a49c7e43893b9ac864a204c, type: 2}
@@ -303,6 +305,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &379924593961450429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5346375992903143685}
+  m_Layer: 8
+  m_Name: StilletoThrowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5346375992903143685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379924593961450429}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.006, y: -0.018, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5300247762947617179}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3446627692758811279
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,3 +420,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6837375343060994849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5300247762947617179}
+  - component: {fileID: 7767652386145440683}
+  m_Layer: 8
+  m_Name: Stiletto
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5300247762947617179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6837375343060994849}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.645, y: 0.049, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5346375992903143685}
+  m_Father: {fileID: 4829106077352807342}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7767652386145440683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6837375343060994849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5712c9204f761b54eba9b8dc2f9a5309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stiletto: {fileID: 9089524238687466038, guid: 870858a52ef07744f9d8d4bad3e48610, type: 3}
+  launchForce: 20
+  shotPoint: {fileID: 5346375992903143685}
+  point: {fileID: 8690669871452504933, guid: ca39a3ca3a5943741b8f9df2b464e75e, type: 3}
+  numberOfPoints: 30
+  spaceBetweenPoints: 0.025

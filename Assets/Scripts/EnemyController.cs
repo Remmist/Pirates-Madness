@@ -29,10 +29,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float _chaseDistance;
     //[SerializeField] private float _StopChaseDistance;
     
+    
     private bool _isGrounded;
     private bool _isJumping;
     private bool _isChasing;
     
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -40,39 +42,37 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-
         /*
          * Quick note - while setting patrol points (ex. adding empty objects to enemy instance on hierarchy view,
          * then setting these objects on the scene), make sure the first patrol point (the one to which the enemy comes
          * in the first place), is on the right from the enemy instance, otherwise, there will be problems with swapping
          * the enemy model left/right.
          */
-        
         if (_isChasing)
         {
             if (transform.position.x > _playerTransform.position.x)
             {
                 var transformVar = transform;
-                transformVar.localScale = new Vector3(-1, transformVar.localScale.y, 1);
+                transformVar.localScale = new Vector3(-Math.Abs(transformVar.localScale.x), transformVar.localScale.y, 1);
                 transformVar.position += Vector3.left * ((_moveSpeed + _chaseSpeed) * Time.deltaTime);
             }
             if  (transform.position.x < _playerTransform.position.x)
             {
                 var transformVar = transform;
-                transformVar.localScale = new Vector3(1, transformVar.localScale.y, 1);
+                transformVar.localScale = new Vector3(Math.Abs(transformVar.localScale.x), transformVar.localScale.y, 1);
                 transformVar.position += Vector3.right * ((_moveSpeed + _chaseSpeed) * Time.deltaTime);
             }
             
             if (!_isJumping && !Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer))
             {
                 var transformLocalScale = transform.localScale;
-                if (transformLocalScale.x == -1)
+                if (transformLocalScale.x < 0)
                 {
-                    transformLocalScale = new Vector3(1, transformLocalScale.y, 1);
+                    transformLocalScale = new Vector3(Math.Abs(transformLocalScale.x), transformLocalScale.y, 1);
                     transform.localScale = transformLocalScale;
-                } else if (transformLocalScale.x == 1)
+                } else if (transformLocalScale.x > 0)
                 {
-                    transformLocalScale = new Vector3(-1, transformLocalScale.y, 1);
+                    transformLocalScale = new Vector3(-Math.Abs(transformLocalScale.x), transformLocalScale.y, 1);
                     transform.localScale = transformLocalScale;
                 }
                 _isChasing = false;
@@ -102,7 +102,7 @@ public class EnemyController : MonoBehaviour
                 if (Vector2.Distance(transform.position, _patrolPoints[0].position) < .2f)
                 {
                     var transform1 = transform;
-                    transform1.localScale = new Vector3(-1, transform1.localScale.y, 1);
+                    transform1.localScale = new Vector3(-Math.Abs(transform1.localScale.x), transform1.localScale.y, 1);
                     patrolDestination = 1;
                 }
             }
@@ -116,7 +116,7 @@ public class EnemyController : MonoBehaviour
                 if (Vector2.Distance(transform.position, _patrolPoints[1].position) < .2f)
                 {
                     var transform1 = transform;
-                    transform1.localScale = new Vector3(1, transform1.localScale.y, 1);
+                    transform1.localScale = new Vector3(Math.Abs(transform1.localScale.x), transform1.localScale.y, 1);
                     patrolDestination = 0;
                 }
             }

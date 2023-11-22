@@ -17,32 +17,46 @@ public class EnemyStateController : MonoBehaviour
     
     private void FixedUpdate()
     {
-        // _animator.SetFloat("XInputAbs", _rb.velocity.magnitude);
-        if (_rb.velocity.y < -0.5 && _enemyCharacteristics.IsAlive)
+        // if (_rb.velocity != Vector2.zero)
+        // {
+        //     _animator.SetBool("IsRunning", true);
+        // }
+        // else
+        // {
+        //     _animator.SetBool("IsRunning", false);
+        // }
+        
+        if (_rb.velocity.y > 3 && _enemyCharacteristics.IsAlive)
         {
-            _animator.SetBool("IsFalling", true);
+            _animator.SetTrigger("Jump");
+            _animator.SetBool("IsGrounded", false); 
+        } else if (_rb.velocity.y < -3 && _enemyCharacteristics.IsAlive) 
+        { 
+            _animator.SetBool("IsFalling", true); 
+            _animator.SetBool("IsGrounded", false); 
         }
-        else
-        {
-            _animator.SetBool("IsFalling", false);
+        else 
+        { 
+            _animator.SetBool("IsFalling", false); 
+            _animator.SetBool("IsGrounded", true); 
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (!(other.collider.CompareTag("Ground") || other.collider.CompareTag("BreakablePlatform")))
-        {
-            return;
-        }
-        _animator.SetBool("IsGrounded", true);
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (!(other.collider.CompareTag("Ground") || other.collider.CompareTag("BreakablePlatform")))
-        {
-            return;
-        }
-        _animator.SetBool("IsGrounded", false);
-    }
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (!(other.collider.CompareTag("Ground") || other.collider.CompareTag("BreakablePlatform")))
+    //     {
+    //         return;
+    //     }
+    //     _animator.SetBool("IsGrounded", true);
+    // }
+    //
+    // private void OnCollisionExit2D(Collision2D other)
+    // {
+    //     if (!(other.collider.CompareTag("Ground") || other.collider.CompareTag("BreakablePlatform")))
+    //     {
+    //         return;
+    //     }
+    //     _animator.SetBool("IsGrounded", false);
+    // }
 }

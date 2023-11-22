@@ -20,8 +20,11 @@ public class Stiletto : MonoBehaviour
     private Camera _mainCamera;
     private PlayerInventory _playerInventory;
 
+    private Animator _animator;
+
     private void Start()
     {
+        _animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         _playerInventory = FindObjectOfType<PlayerInventory>();
         _mainCamera = FindObjectOfType<Camera>();
         if (_mainCamera == null)
@@ -71,6 +74,7 @@ public class Stiletto : MonoBehaviour
 
     private void Throw()
     {
+        _animator.SetTrigger("Throw");
         GameObject newStiletto = Instantiate(stiletto, shotPoint.position, Quaternion.identity);
         Rigidbody2D rb = newStiletto.GetComponent<Rigidbody2D>();
         rb.velocity = _direction.normalized * launchForce;
