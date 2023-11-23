@@ -4984,6 +4984,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2560406806879489187, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _dialogueCanvas
+      value: 
+      objectReference: {fileID: 604581218}
     - target: {fileID: 3962028069359033972, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
       propertyPath: m_Name
       value: TestCrab
