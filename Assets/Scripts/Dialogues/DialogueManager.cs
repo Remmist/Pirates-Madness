@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
 
     private int _index;
     private bool _isEnded;
+    private bool _final;
 
     private void Start()
     {
@@ -82,6 +83,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public void CollectCoins()
+    {
+        
+    }
+
     public string[] Lines
     {
         get => _lines;
@@ -92,5 +98,11 @@ public class DialogueManager : MonoBehaviour
     {
         get => _isEnded;
         set => _isEnded = value;
+    }
+
+    public bool Final
+    {
+        get => _final;
+        set => _final = value;
     }
 }

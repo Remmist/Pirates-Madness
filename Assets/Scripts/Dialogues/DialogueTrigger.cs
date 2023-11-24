@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private string[] _lines;
 
     private bool _IsActivated;
-    
+    [SerializeField] private bool _isFinal;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -30,6 +28,10 @@ public class DialogueTrigger : MonoBehaviour
 
     void TriggerDialogue()
     {
+        if (_isFinal)
+        {
+            _dialogueCanvas.GetComponent<DialogueManager>().Final = true;
+        }
         if (!_IsActivated)
         {
             _dialogueCanvas.GetComponent<DialogueManager>().Lines = _lines;
