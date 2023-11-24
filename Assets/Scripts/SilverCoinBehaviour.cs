@@ -8,10 +8,12 @@ public class SilverCoinBehaviour : CollectibleItem
         var inventory = FindObjectOfType<PlayerInventory>();
         inventory.SilverCoins++;
         Destroy(gameObject);
+      
     }
 
     public override void UseItem()
     {
+       
         throw new NotImplementedException();
     }
 }

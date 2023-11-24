@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ public class PlayerInventory : MonoBehaviour
     private PlayerMovement _playerMovement;
 
     private PotionsBarsManager _potionsBarsManager;
+
+    [SerializeField] private AudioSource _audioCoin;
 
 
     private void Awake()
@@ -162,8 +165,10 @@ public class PlayerInventory : MonoBehaviour
 
     public int SilverCoins
     {
+        
         get => _silverCoins;
         set => _silverCoins = value;
+        
     }
 
     public int DaggersCounter

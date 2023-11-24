@@ -7,15 +7,16 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject _dialogueCanvas;
     [SerializeField] private TMP_Text _textComponent;
     [SerializeField] private float _textSpeed;
-    
-    private string[] _lines;
+    [SerializeField] private AudioSource _audioSource;
 
+    private string[] _lines;
     private int _index;
     private bool _isEnded;
 
     private void Start()
     {
         _textComponent.text = string.Empty;
+        PlayAudio();
     }
 
     private void Update()
@@ -30,6 +31,7 @@ public class DialogueManager : MonoBehaviour
             {
                 StopAllCoroutines();
                 _textComponent.text = _lines[_index];
+                PauseAudio();
             }
         }
     }
@@ -50,6 +52,7 @@ public class DialogueManager : MonoBehaviour
     public void ClearText()
     {
         _textComponent.text = string.Empty;
+        PlayAudio(); // Возобновляем воспроизведение звука при очистке текста
     }
 
     private IEnumerator TypeLine()
@@ -58,8 +61,10 @@ public class DialogueManager : MonoBehaviour
         foreach (char c in chars)
         {
             _textComponent.text += c;
+            PlayAudio(); // Воспроизводим звук при появлении каждого символа
             yield return new WaitForSeconds(_textSpeed);
         }
+        PauseAudio(); // Делаем паузу после завершения строки
     }
 
     private void NextLine()
@@ -79,7 +84,26 @@ public class DialogueManager : MonoBehaviour
             _isEnded = true;
             _textComponent.text = string.Empty;
             _dialogueCanvas.SetActive(false);
+            StopAudio(); // Останавливаем звук при завершении диалога
         }
+    }
+
+    private void PlayAudio()
+    {
+        if (!_audioSource.isPlaying)
+        {
+            _audioSource.Play();
+        }
+    }
+
+    private void PauseAudio()
+    {
+        _audioSource.Pause();
+    }
+
+    private void StopAudio()
+    {
+        _audioSource.Stop();
     }
 
     public string[] Lines

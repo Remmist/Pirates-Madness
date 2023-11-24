@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _dashPower = 24f;
     [SerializeField] private float _dashCooldown = 1f;
     [SerializeField] private float _dashTime = 0.2f;
+
+    [SerializeField] private AudioSource _audioJump;
     
     private void Awake()
     {
@@ -74,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
             _performJump = true;
+            _audioJump.Play();
         }
 
         if (Input.GetButtonDown("Jump") && _isAfterJump && _counterAirJumps < _maxAmountOfAirJumps)
@@ -81,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool("IsAirJumped", true);
             _performAirJump = true;
             _counterAirJumps++;
+            _audioJump.Play();
+
         }
 
 

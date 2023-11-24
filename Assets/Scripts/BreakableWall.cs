@@ -5,6 +5,7 @@ public class BreakableWall : MonoBehaviour
     [SerializeField] private float _health;
     private float _currentHealth;
     private bool _isAlive;
+    [SerializeField] private AudioSource _audioSource;
 
     private Animator _animator;
 
@@ -36,5 +37,6 @@ public class BreakableWall : MonoBehaviour
     {
         _isAlive = false;
         _animator.SetTrigger("Break");
+        _audioSource.Play();
     }
 }
