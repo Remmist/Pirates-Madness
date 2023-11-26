@@ -16,6 +16,8 @@ public class TestEnemyCharacteristics : MonoBehaviour
     private PlayerSwordCombat _playerSwordCombat;
     private PlayerMovement _playerMovement;
 
+    [SerializeField] private AudioSource _audioDamage;
+    
     private void Update()
     {
         _enemyLocalScale = transform.localScale.x;
@@ -73,6 +75,7 @@ public class TestEnemyCharacteristics : MonoBehaviour
             return;
         }
         _animator.SetTrigger("Hurt");
+        _audioDamage.Play();
     }
 
     private void Die()

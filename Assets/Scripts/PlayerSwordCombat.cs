@@ -18,12 +18,13 @@ public class PlayerSwordCombat : MonoBehaviour
 
     private float _attackLocalScale = 0f;
 
-
+    [SerializeField] private AudioSource _swordSwingSound;
     private void Awake()
     {
         _player = GetComponent<PlayerCharacteristics>();
         _animator = GetComponent<Animator>();
         _playerMovement = GetComponent<PlayerMovement>();
+     
     }
 
     private void Update()
@@ -42,6 +43,8 @@ public class PlayerSwordCombat : MonoBehaviour
                 _animator.SetTrigger("Attack");
                 Attack(false);
                 _nextAttackTime = Time.time + 1f / _attackRate;
+                
+                _swordSwingSound.Play();
             }
         }
     }

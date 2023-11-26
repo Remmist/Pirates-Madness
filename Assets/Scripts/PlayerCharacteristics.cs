@@ -12,7 +12,7 @@ public class PlayerCharacteristics : MonoBehaviour
     private float _dashDamage;
     private Animator _animator;
     private bool _isAlive;
-
+    [SerializeField] private AudioSource _audioDamag;
     private void Awake()
     {
         _isAlive = true;
@@ -30,7 +30,7 @@ public class PlayerCharacteristics : MonoBehaviour
         }
         _animator.SetTrigger("Hurt");
         _currentHealth -= takenDamage;
-
+        _audioDamag.Play();
         if (_currentHealth <= 0)
         {
             Die();

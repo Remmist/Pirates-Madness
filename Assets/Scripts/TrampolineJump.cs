@@ -11,7 +11,7 @@ public class Trampoline : MonoBehaviour
     [SerializeField] private float activateRadius = 2.5f;
     
     private Animator _animator;
-
+    [SerializeField] private AudioSource _audioJump;
 
     private void Awake()
     {
@@ -39,6 +39,7 @@ public class Trampoline : MonoBehaviour
             collision.gameObject.GetComponent<Animator>().SetBool("IsGrounded", false);
             collision.gameObject.GetComponent<Animator>().SetBool("IsAfterJump", true);
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+            _audioJump.Play();
         }
     }
 

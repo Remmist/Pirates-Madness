@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 public class SilverCoinBehaviour : CollectibleItem
 {
-    
+
     protected override void CollectBehaviour()
     {
         var inventory = FindObjectOfType<PlayerInventory>();
@@ -13,7 +13,7 @@ public class SilverCoinBehaviour : CollectibleItem
 
     public override void UseItem()
     {
-       
+     
         throw new NotImplementedException();
     }
 }

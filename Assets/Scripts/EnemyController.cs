@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 {
 
     private Rigidbody2D _rigidbody;
-    
+    [SerializeField] private AudioSource _audioWalking;
     [SerializeField] private Transform[] _patrolPoints;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _chaseSpeed;
@@ -24,9 +24,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float gulfCheckRadius = 0.1f;
     
     private Color _gizmosColor;
+   
 
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _chaseDistance;
+
+
     //[SerializeField] private float _StopChaseDistance;
 
     private Animator _animator;
@@ -41,6 +44,7 @@ public class EnemyController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _animator.SetBool("IsRunning", true);
+       
     }
 
     private void Update()
@@ -107,6 +111,7 @@ public class EnemyController : MonoBehaviour
                     var transform1 = transform;
                     transform1.localScale = new Vector3(-Math.Abs(transform1.localScale.x), transform1.localScale.y, 1);
                     patrolDestination = 1;
+                    _audioWalking.Play();
                 }
             }
             if (patrolDestination == 1)
@@ -121,6 +126,13 @@ public class EnemyController : MonoBehaviour
                     var transform1 = transform;
                     transform1.localScale = new Vector3(Math.Abs(transform1.localScale.x), transform1.localScale.y, 1);
                     patrolDestination = 0;
+                    
+                    // Проверяем, не проигрывается ли звук в данный момент
+                    if (!_audioWalking.isPlaying)
+                    {
+                        // Если звук не проигрывается, то начинаем воспроизведение
+                        _audioWalking.Play();
+                    }
                 }
             }
         }

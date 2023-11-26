@@ -36,6 +36,8 @@ public class PlayerInventory : MonoBehaviour
     public void AddToInventory(CollectibleItem item)
     {
         _items.Enqueue(item);
+        _audioCoin.Play();
+       
     }
 
     public void Update()
@@ -144,6 +146,7 @@ public class PlayerInventory : MonoBehaviour
     public void AddKeys()
     {
         _keysCollected++;
+    
     }
 
     public bool HasKeys()

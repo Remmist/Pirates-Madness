@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private AudioSource _audioJump;
     
+    
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
