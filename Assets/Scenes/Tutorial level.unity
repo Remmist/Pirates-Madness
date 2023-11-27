@@ -842,12 +842,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2560406806879489187, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _isFinal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560406806879489187, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
       propertyPath: _dialogueCanvas
       value: 
       objectReference: {fileID: 1247577324}
     - target: {fileID: 3962028069359033972, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
       propertyPath: m_Name
       value: TestCrab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: _isFinal
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
       propertyPath: _dialogueCanvas
@@ -869,6 +877,18 @@ PrefabInstance:
     - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
       propertyPath: _lines.Array.data[2]
       value: ' Test line 3'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750222798211481684, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 315057802}
+    - target: {fileID: 7318475847149659781, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 506866917}
+    - target: {fileID: 7318475847149659781, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FadeToLevel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2560,6 +2580,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c21e6a14a4bf77243b04663e69ba5018, type: 3}
+--- !u!114 &506866917 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5682780649215958041, guid: c21e6a14a4bf77243b04663e69ba5018, type: 3}
+  m_PrefabInstance: {fileID: 506866916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 792321a823b3bc04e9b7b3395e5a5ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &507272096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7670107358156948862, guid: 11b21e6dac485f249ad6814a505ee225, type: 3}
@@ -5091,7 +5122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4745503219255563855, guid: 8a2dae364363cb6498ec2ef9e9e7636e, type: 3}
       propertyPath: _lines.Array.data[3]
-      value: Gold coins are my love, got it?
+      value: Gold coins are my love, got it? Collect for me 2 golden coins!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
