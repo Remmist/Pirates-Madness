@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject _silverCoins;
     [SerializeField] private GameObject _diamonds;
     [SerializeField] private GameObject _keys;
+
+    [SerializeField] private Button loadButton;
     private bool _isPaused;
 
     private void Awake()
@@ -32,6 +35,22 @@ public class PauseMenuManager : MonoBehaviour
             {
                 Pause();
             }
+        }
+
+        if (PlayerPrefs.HasKey("SavedLevel"))
+        {
+            if (PlayerPrefs.GetString("SavedLevel") == SceneManager.GetActiveScene().name)
+            {
+                loadButton.interactable = true;
+            }
+            else
+            {
+                loadButton.interactable = false;
+            }
+        } 
+        else
+        {
+            loadButton.interactable = false;
         }
     }
 
@@ -73,7 +92,9 @@ public class PauseMenuManager : MonoBehaviour
     
     public void LoadCheckpoint()
     {
-        //TODO
+        PlayerPrefs.SetString("IsSaveLoad", "true");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(PlayerPrefs.GetString("SavedLevel"));
     }
     
 }
