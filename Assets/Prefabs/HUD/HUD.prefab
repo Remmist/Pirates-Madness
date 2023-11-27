@@ -1328,6 +1328,7 @@ MonoBehaviour:
   _silverCoins: {fileID: 6292844032097809217}
   _diamonds: {fileID: 4975231943589604552}
   _keys: {fileID: 705643652822857076}
+  loadButton: {fileID: 3823012494721427982}
 --- !u!114 &1490376167408812763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,6 +1347,7 @@ MonoBehaviour:
   _potions: {fileID: 4993609261497357290}
   _coins: {fileID: 6299059004289071252}
   _dash: {fileID: 3591891610132932823}
+  loadButton: {fileID: 4257902971949831741}
 --- !u!1 &3591891610132932823
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,7 +4342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2251019644195327831, guid: 6986a6ad7b52ebd42a73475b922f0037, type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2251019644195327831, guid: 6986a6ad7b52ebd42a73475b922f0037, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4479,6 +4481,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6986a6ad7b52ebd42a73475b922f0037, type: 3}
+--- !u!114 &3823012494721427982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2251019644195327831, guid: 6986a6ad7b52ebd42a73475b922f0037, type: 3}
+  m_PrefabInstance: {fileID: 3040822463692825945}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8698556042219197998 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5945966783591478135, guid: 6986a6ad7b52ebd42a73475b922f0037, type: 3}
@@ -5058,7 +5071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8286439178177869929, guid: 4b67b9abd0cb2c140a0d9ee99cfe5019, type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8286439178177869929, guid: 4b67b9abd0cb2c140a0d9ee99cfe5019, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -5098,6 +5111,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5837713871438353870, guid: 4b67b9abd0cb2c140a0d9ee99cfe5019, type: 3}
   m_PrefabInstance: {fileID: 5325582111716781652}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4257902971949831741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8286439178177869929, guid: 4b67b9abd0cb2c140a0d9ee99cfe5019, type: 3}
+  m_PrefabInstance: {fileID: 5325582111716781652}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5915298128325110032
 PrefabInstance:
   m_ObjectHideFlags: 0
