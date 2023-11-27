@@ -39,6 +39,8 @@ public class EnemyController : MonoBehaviour
     private bool _isChasing;
     private Rigidbody2D _playerRigidbody2D;
     private float _timeSinceLastAttack;
+
+    private TestEnemyCharacteristics _enemyCharacteristics;
     
     private void Start()
     {
@@ -46,10 +48,15 @@ public class EnemyController : MonoBehaviour
         _playerCharacteristics = FindObjectOfType<PlayerCharacteristics>();
         _animator = GetComponent<Animator>();
         _animator.SetBool("IsRunning", true);
+        _enemyCharacteristics = GetComponent<TestEnemyCharacteristics>();
     }
 
     private void Update()
     {
+        if (!_enemyCharacteristics.IsAlive)
+        {
+            return;
+        }
         _timeSinceLastAttack += Time.deltaTime;
         
         /*
