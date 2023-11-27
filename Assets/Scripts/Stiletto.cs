@@ -21,7 +21,8 @@ public class Stiletto : MonoBehaviour
     private PlayerInventory _playerInventory;
 
     private Animator _animator;
-
+    [SerializeField] private AudioSource throwSound;
+  
     private void Start()
     {
         _animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
@@ -78,6 +79,10 @@ public class Stiletto : MonoBehaviour
         GameObject newStiletto = Instantiate(stiletto, shotPoint.position, Quaternion.identity);
         Rigidbody2D rb = newStiletto.GetComponent<Rigidbody2D>();
         rb.velocity = _direction.normalized * launchForce;
+        if (throwSound != null)
+        {
+            throwSound.Play();
+        }
     }
 
     private Vector2 PointPosition(float t)
@@ -92,4 +97,5 @@ public class Stiletto : MonoBehaviour
         Gizmos.color = _gizmosColor;
         Gizmos.DrawWireSphere(transform.position, .1f);
     }
+    
 }

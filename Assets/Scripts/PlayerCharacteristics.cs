@@ -13,6 +13,7 @@ public class PlayerCharacteristics : MonoBehaviour
     private Animator _animator;
     private bool _isAlive;
     [SerializeField] private AudioSource _audioDamag;
+    [SerializeField] private AudioSource _soundDead;
     private void Awake()
     {
         _isAlive = true;
@@ -41,6 +42,7 @@ public class PlayerCharacteristics : MonoBehaviour
     {
         _isAlive = false;
         _animator.SetTrigger("Dead");
+        _soundDead.Play();
     }
 
     public void Heal(int healAmount)

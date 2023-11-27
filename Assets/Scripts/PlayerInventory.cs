@@ -24,6 +24,7 @@ public class PlayerInventory : MonoBehaviour
     private PotionsBarsManager _potionsBarsManager;
 
     [SerializeField] private AudioSource _audioCoin;
+    [SerializeField] private AudioSource _audioUsing;
 
 
     private void Awake()
@@ -83,6 +84,7 @@ public class PlayerInventory : MonoBehaviour
 
         Type tip = _items.ElementAt(pos).GetType();
 
+        _audioUsing.Play();
         if (pos == 0)
         { 
             _items.Dequeue().UseItem();
@@ -116,7 +118,7 @@ public class PlayerInventory : MonoBehaviour
             var tmpItem = _items.Dequeue();
             _items.Dequeue().UseItem();
             _items.Enqueue(tmpItem);
-            
+            _audioUsing.Play();
             if (tip == typeof(SpeedPotionBehaviour))
             {
                 if (_playerCharacteristics.IsStrengthEffect)

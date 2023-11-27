@@ -7,6 +7,7 @@ public class ChestBehaviour : CollectibleItem
     private Animator _animator;
     private bool _isOpend;
 
+    [SerializeField] private AudioSource _audioSource;
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -28,6 +29,7 @@ public class ChestBehaviour : CollectibleItem
             _playerInventory.KeysCollected--;
             Debug.Log("You have opened the chest!");
             _animator.SetTrigger("Unlock");
+            _audioSource.Play();
             _isOpend = true;
         }
         else

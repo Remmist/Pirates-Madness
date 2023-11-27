@@ -16,6 +16,7 @@ public class TestEnemyCharacteristics : MonoBehaviour
     private PlayerSwordCombat _playerSwordCombat;
     private PlayerMovement _playerMovement;
 
+    [SerializeField] private AudioSource _audioDie;
     [SerializeField] private AudioSource _audioDamage;
     
     private void Update()
@@ -72,6 +73,7 @@ public class TestEnemyCharacteristics : MonoBehaviour
         if (_currentHealth <= 0)
         {
             Die();
+            _audioDie.Play();
             return;
         }
         _animator.SetTrigger("Hurt");
@@ -85,6 +87,7 @@ public class TestEnemyCharacteristics : MonoBehaviour
         _animator.SetTrigger("Dead");
         var bar = GetComponent<EnemyHealtBar>();
         bar.Die();
+        
     }
 
     public bool IsAlive

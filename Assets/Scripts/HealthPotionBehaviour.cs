@@ -4,8 +4,8 @@ using UnityEngine;
 public class HealthPotionBehaviour : CollectibleItem
 {
     [SerializeField] private HealthPotionConfig _healthPotionConfig;
-
-    protected override void CollectBehaviour()
+    [SerializeField] private AudioSource _useIt;
+protected override void CollectBehaviour()
     {
         var playerCharacteristics = FindObjectOfType<PlayerCharacteristics>();
 
@@ -15,6 +15,7 @@ public class HealthPotionBehaviour : CollectibleItem
         }
         playerCharacteristics.Heal(_healthPotionConfig.HealAmount);
         Debug.Log("You have found a health potion! " + _healthPotionConfig.HealAmount + " health points for You!");
+        _useIt.PlayOneShot(_useIt.clip);
         Destroy(gameObject);
     }
 

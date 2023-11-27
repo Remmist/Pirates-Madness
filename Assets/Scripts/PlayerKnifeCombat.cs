@@ -26,10 +26,13 @@ public class PlayerKnifeCombat : MonoBehaviour
             
             GameObject projectile = Instantiate(_playerProjectilePrefab, _launchOffSet.position, Quaternion.identity);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-            
+           
             rb.velocity = shootingDirection * _shootSpeed;
 
             inventory.DaggersCounter--;
+     
+
+
         }
     }
 }
