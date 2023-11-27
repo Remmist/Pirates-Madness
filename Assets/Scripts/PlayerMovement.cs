@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _dashTime = 0.2f;
 
     [SerializeField] private AudioSource _audioJump;
+    [SerializeField] private AudioSource _audioDash;
     
     
     private void Awake()
@@ -94,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetTrigger("Dash");
             StartCoroutine(Dash());
+            _audioDash.Play();
         }
         
     }

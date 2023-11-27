@@ -11,11 +11,11 @@ protected override void CollectBehaviour()
 
         if (playerCharacteristics.CurrentHealth == playerCharacteristics.PlayerConfig.MaxHealth)
         {
+            
             return;
         }
         playerCharacteristics.Heal(_healthPotionConfig.HealAmount);
         Debug.Log("You have found a health potion! " + _healthPotionConfig.HealAmount + " health points for You!");
-        _useIt.PlayOneShot(_useIt.clip);
         Destroy(gameObject);
     }
 

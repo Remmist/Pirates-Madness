@@ -17,13 +17,14 @@ public class BreakablePlatform : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         StartCoroutine(Break());
+        _hrustBeze.Play();
     }
 
     private IEnumerator Break()
     {
         _animator.SetTrigger("Break");
         yield return new WaitForSeconds(_breakTime);
-        _hrustBeze.Play();
+  
         Destroy(gameObject);
     }
 }

@@ -10,6 +10,7 @@ public abstract class CollectibleItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         CollectBehaviour();
     }
 }
