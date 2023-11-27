@@ -22,36 +22,44 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform gulfCheck_1;
     [SerializeField] private Transform gulfCheck_2;
     [SerializeField] private float gulfCheckRadius = 0.1f;
-    
-    private Color _gizmosColor;
-
+    [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _chaseDistance;
+    [SerializeField] private Transform _attackPoint;
+    [SerializeField] private float _attackPointRange = 0.5f;
+    [SerializeField] private float _attackDamage;
+    [SerializeField] private float _attackCooldown = 2f;
     //[SerializeField] private float _StopChaseDistance;
 
+    private PlayerCharacteristics _playerCharacteristics;
+    private Color _gizmosColor;
     private Animator _animator;
-    
     private bool _isGrounded;
     private bool _isJumping;
     private bool _isChasing;
+    private Rigidbody2D _playerRigidbody2D;
+    private float _timeSinceLastAttack;
     
-
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _playerCharacteristics = FindObjectOfType<PlayerCharacteristics>();
         _animator = GetComponent<Animator>();
         _animator.SetBool("IsRunning", true);
     }
 
     private void Update()
     {
+        _timeSinceLastAttack += Time.deltaTime;
+        
         /*
          * Quick note - while setting patrol points (ex. adding empty objects to enemy instance on hierarchy view,
          * then setting these objects on the scene), make sure the first patrol point (the one to which the enemy comes
          * in the first place), is on the right from the enemy instance, otherwise, there will be problems with swapping
          * the enemy model left/right.
          */
-        if (_isChasing)
+        
+        if (_isChasing && _playerCharacteristics.IsAlive)
         {
             if (transform.position.x > _playerTransform.position.x)
             {
@@ -79,6 +87,15 @@ public class EnemyController : MonoBehaviour
                     transform.localScale = transformLocalScale;
                 }
                 _isChasing = false;
+            }
+
+            Collider2D[] hitColliders = new Collider2D[1];
+            int numColliders = Physics2D.OverlapCircleNonAlloc(_attackPoint.position, _attackPointRange, hitColliders, _playerLayer);
+
+            if (numColliders > 0 && _timeSinceLastAttack >= _attackCooldown)
+            {
+                AttackPlayer();
+                _timeSinceLastAttack = 0f;
             }
             
         }
@@ -189,6 +206,11 @@ public class EnemyController : MonoBehaviour
         _gizmosColor = Color.cyan;
         Gizmos.color = _gizmosColor;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        
+        _gizmosColor = Color.black;
+        Gizmos.color = _gizmosColor;
+        Gizmos.DrawWireSphere(_attackPoint.position, _attackPointRange);
+        
     }
 
     private void JumpOverGulf()
@@ -200,5 +222,10 @@ public class EnemyController : MonoBehaviour
             Jump();
         }
     }
-    
+
+    private void AttackPlayer()
+    {
+        _animator.SetTrigger("Attack");
+        _playerCharacteristics.TakeDamage(_attackDamage);
+    }
 }

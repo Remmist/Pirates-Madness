@@ -28,6 +28,7 @@ public class PlayerCharacteristics : MonoBehaviour
         {
             return;
         }
+        
         _animator.SetTrigger("Hurt");
         _currentHealth -= takenDamage;
 
@@ -108,4 +109,6 @@ public class PlayerCharacteristics : MonoBehaviour
     public bool IsStrengthEffect => _isStrengthEffect;
 
     public PlayerConfig PlayerConfig => _playerConfig;
+
+    public bool IsPlayerAlive => _isAlive;
 }
