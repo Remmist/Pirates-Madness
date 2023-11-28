@@ -82,6 +82,9 @@ public class TestEnemyCharacteristics : MonoBehaviour
         _animator.SetTrigger("Dead");
         var bar = GetComponent<EnemyHealtBar>();
         bar.Die();
+        _animator.SetBool("IsGrounded", false);
+        _animator.SetBool("IsGrounded", false);
+        _animator.SetBool("IsGrounded", false);
     }
 
     public bool IsAlive

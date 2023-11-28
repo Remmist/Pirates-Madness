@@ -15,4 +15,4 @@ MonoBehaviour:
   Description: Adds 5 Speed points
   UISprite: {fileID: -62375907, guid: 696395b6b409f3d4b90e1a8175e65bc8, type: 3}
   SpeedAmount: 5
-  Duration: 30
+  Duration: 15
