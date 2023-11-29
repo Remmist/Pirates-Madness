@@ -31,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _dashPower = 24f;
     [SerializeField] private float _dashCooldown = 1f;
     [SerializeField] private float _dashTime = 0.2f;
+
+    [SerializeField] private LayerMask groundMask;
+    private BoxCollider2D _collider;
+    
+    
     
     private void Awake()
     {
@@ -39,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         _characteristics = GetComponent<PlayerCharacteristics>();
         _currentSpeed = _playerConfig.BaseSpeed;
         _dashManager = FindObjectOfType<DashManager>();
+        _collider = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -71,13 +77,15 @@ public class PlayerMovement : MonoBehaviour
             playerTransform.localScale = new Vector2(-1, transform.localScale.y);
         }
 
-        if (Input.GetButtonDown("Jump") && _isGrounded)
+        if (Input.GetButtonDown("Jump") && Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0, Vector2.down, 0.1f, groundMask))
         {
+            _rb.velocity = new Vector2(_rb.velocity.x, 0);
             _performJump = true;
         }
 
         if (Input.GetButtonDown("Jump") && _isAfterJump && _counterAirJumps < _maxAmountOfAirJumps)
         {
+            _rb.velocity = new Vector2(_rb.velocity.x, 0);
             _animator.SetBool("IsAirJumped", true);
             _performAirJump = true;
             _counterAirJumps++;
@@ -156,16 +164,40 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-
         if (!(other.collider.CompareTag("Ground") || other.collider.CompareTag("BreakablePlatform")))
         {
             return;
         }
-        _isGrounded = true;
-        _isAfterJump = false;
-        _animator.SetBool("IsGrounded", true);
-        _animator.SetBool("IsAfterJump", false);
-        _counterAirJumps = 0;
+
+        if (Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0, Vector2.down, 0.1f, groundMask))
+        {
+            _isGrounded = true;
+            _isAfterJump = false;
+            _animator.SetBool("IsGrounded", true);
+            _animator.SetBool("IsAfterJump", false);
+            _counterAirJumps = 0;
+        }
+        // _isGrounded = true;
+        // _isAfterJump = false;
+        // _animator.SetBool("IsGrounded", true);
+        // _animator.SetBool("IsAfterJump", false);
+        // _counterAirJumps = 0;
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (!(other.collider.CompareTag("Ground") || other.collider.CompareTag("BreakablePlatform")))
+        {
+            return;
+        }
+        if (Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0, Vector2.down, 0.1f, groundMask))
+        {
+            _isGrounded = true;
+            _isAfterJump = false;
+            _animator.SetBool("IsGrounded", true);
+            _animator.SetBool("IsAfterJump", false);
+            _counterAirJumps = 0;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D other)

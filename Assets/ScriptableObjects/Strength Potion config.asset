@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Description: Adds 10 strength points
   UISprite: {fileID: 129126156, guid: 862959cb26e51294db18be85f382992e, type: 3}
-  StrengthAmount: 10
-  Duration: 30
+  StrengthAmount: 30
+  Duration: 15

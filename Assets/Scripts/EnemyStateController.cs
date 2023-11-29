@@ -35,9 +35,18 @@ public class EnemyStateController : MonoBehaviour
             _animator.SetBool("IsFalling", true); 
             _animator.SetBool("IsGrounded", false); 
         }
-        else 
-        { 
-            _animator.SetBool("IsFalling", false); 
+        // else
+        // { 
+        //     _animator.SetBool("IsFalling", false); 
+        //     _animator.SetBool("IsGrounded", true); 
+        // }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.tag == "Ground")
+        {
             _animator.SetBool("IsGrounded", true); 
         }
     }

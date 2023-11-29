@@ -211,11 +211,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerConfig: {fileID: 11400000, guid: 026c5868360fbff49ba575e601012f0b, type: 2}
-  _jumpForce: 12
+  _jumpForce: 13
   _maxAmountOfAirJumps: 1
   _dashPower: 24
   _dashCooldown: 1
   _dashTime: 0.2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &1907068242728185599
 MonoBehaviour:
   m_ObjectHideFlags: 0
