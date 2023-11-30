@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _isSpeedEffect;
 
     private bool _performJump;
-    private bool _isGrounded;
+    // private bool _isGrounded;
     [SerializeField] private float _jumpForce = 5;
     [SerializeField] private float _maxAmountOfAirJumps = 1;
     private int _counterAirJumps = 0;
@@ -129,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
         if (_performJump)
         {
             _performJump = false;
-            _isGrounded = false;
+            // _isGrounded = false;
             _rb.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
             _isAfterJump = true;
             _animator.SetBool("IsAfterJump", true);
@@ -169,9 +169,15 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        if (other.collider.CompareTag("BreakablePlatform"))
+        {
+            _animator.SetBool("IsGrounded", true);
+            _animator.SetBool("IsAfterJump", false);
+        }
+
         if (Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0, Vector2.down, 0.1f, groundMask))
         {
-            _isGrounded = true;
+            // _isGrounded = true;
             _isAfterJump = false;
             _animator.SetBool("IsGrounded", true);
             _animator.SetBool("IsAfterJump", false);
@@ -192,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0, Vector2.down, 0.1f, groundMask))
         {
-            _isGrounded = true;
+            // _isGrounded = true;
             _isAfterJump = false;
             _animator.SetBool("IsGrounded", true);
             _animator.SetBool("IsAfterJump", false);
@@ -206,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        _isGrounded = false;
+        // _isGrounded = false;
         _animator.SetBool("IsGrounded", false);
     }
     
