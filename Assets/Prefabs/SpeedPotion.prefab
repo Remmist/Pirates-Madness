@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedPotionConfig: {fileID: 11400000, guid: 0241b12900aafee40982b692da8f9bf5, type: 2}
+  effect: {fileID: 3138127371733164601, guid: 973f7c573a96ad74aa817625b774cfc6, type: 3}
 --- !u!95 &5495943485324435502
 Animator:
   serializedVersion: 5

@@ -5,6 +5,7 @@ using UnityEngine;
 public class StrengthPotionBehaviour : CollectibleItem
 {
     [SerializeField] private StrengthPotionConfig _strengthPotionConfig;
+    [SerializeField] private GameObject effect;
     
     protected override void CollectBehaviour()
     {
@@ -20,6 +21,7 @@ public class StrengthPotionBehaviour : CollectibleItem
 
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        Instantiate(effect, transform.position, Quaternion.identity);
     }
     
     

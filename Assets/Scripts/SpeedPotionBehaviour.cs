@@ -5,6 +5,7 @@ public class SpeedPotionBehaviour : CollectibleItem
 {
     
     [SerializeField] private SpeedPotionConfig _speedPotionConfig;
+    [SerializeField] private GameObject effect;
     
     protected override void CollectBehaviour()
     {
@@ -19,6 +20,7 @@ public class SpeedPotionBehaviour : CollectibleItem
         inventory.AddToInventory(this);
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        Instantiate(effect, transform.position, Quaternion.identity);
     }
 
     public override void UseItem()
