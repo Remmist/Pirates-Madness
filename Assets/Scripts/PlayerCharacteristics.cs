@@ -12,6 +12,8 @@ public class PlayerCharacteristics : MonoBehaviour
     private float _dashDamage;
     private Animator _animator;
     private bool _isAlive;
+    [SerializeField] private AudioSource _audioDie;
+    [SerializeField] private AudioSource _audioDamage;
 
     private void Awake()
     {
@@ -36,12 +38,14 @@ public class PlayerCharacteristics : MonoBehaviour
         {
             Die();
         }
+        _audioDamage.Play();
     }
 
     private void Die()
     {
         _isAlive = false;
         _animator.SetTrigger("Dead");
+        _audioDie.Play();
     }
 
     public void Heal(int healAmount)

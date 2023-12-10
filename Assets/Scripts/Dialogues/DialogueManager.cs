@@ -7,7 +7,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject _dialogueCanvas;
     [SerializeField] private TMP_Text _textComponent;
     [SerializeField] private float _textSpeed;
-    
+    [SerializeField] private AudioSource _audioSource;
+
     private string[] _lines;
 
     private int _index;
@@ -17,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         _textComponent.text = string.Empty;
+        PlayAudio();
     }
 
     private void Update()
@@ -31,6 +33,7 @@ public class DialogueManager : MonoBehaviour
             {
                 StopAllCoroutines();
                 _textComponent.text = _lines[_index];
+                PauseAudio();
             }
         }
     }
@@ -51,6 +54,7 @@ public class DialogueManager : MonoBehaviour
     public void ClearText()
     {
         _textComponent.text = string.Empty;
+        PlayAudio(); 
     }
 
     private IEnumerator TypeLine()
@@ -59,8 +63,11 @@ public class DialogueManager : MonoBehaviour
         foreach (char c in chars)
         {
             _textComponent.text += c;
+            PlayAudio();
             yield return new WaitForSeconds(_textSpeed);
+           
         }
+        PauseAudio();
     }
 
     private void NextLine()
@@ -80,12 +87,26 @@ public class DialogueManager : MonoBehaviour
             _isEnded = true;
             _textComponent.text = string.Empty;
             _dialogueCanvas.SetActive(false);
+            StopAudio(); 
+        }
+    }
+    
+    private void PlayAudio()
+    {
+        if (!_audioSource.isPlaying)
+        {
+            _audioSource.Play();
         }
     }
 
-    public void CollectCoins()
+    private void PauseAudio()
     {
-        
+        _audioSource.Pause();
+    }
+
+    private void StopAudio()
+    {
+        _audioSource.Stop();
     }
 
     public string[] Lines

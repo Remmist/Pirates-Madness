@@ -12,6 +12,7 @@ public class ChestBehaviour : CollectibleItem
     [SerializeField] private GameObject _speedPotionPrefab;
     [SerializeField] private GameObject _stilettoPrefab;
     [SerializeField] private Transform _itemSpawnPoint;
+    [SerializeField] private AudioSource _audioOpen;
     
     public enum ItemInsideTheChest
     {
@@ -44,6 +45,7 @@ public class ChestBehaviour : CollectibleItem
             _playerInventory.KeysCollected--;
             Debug.Log("You have opened the chest!");
             _animator.SetTrigger("Unlock");
+            _audioOpen.Play();
             _isOpened = true;
             ThrowHiddenItemWhenChestOpens();
         }

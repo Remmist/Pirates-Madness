@@ -7,6 +7,7 @@ public class BreakableWall : MonoBehaviour
     private bool _isAlive;
 
     private Animator _animator;
+    [SerializeField] private AudioSource _audioSource;
 
     private void Awake()
     {
@@ -36,5 +37,6 @@ public class BreakableWall : MonoBehaviour
     {
         _isAlive = false;
         _animator.SetTrigger("Break");
+        _audioSource.Play();
     }
 }

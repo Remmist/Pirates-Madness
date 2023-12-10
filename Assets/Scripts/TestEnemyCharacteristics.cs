@@ -15,6 +15,8 @@ public class TestEnemyCharacteristics : MonoBehaviour
     private float _enemyLocalScale = 0f;
     private PlayerSwordCombat _playerSwordCombat;
     private PlayerMovement _playerMovement;
+    [SerializeField] private AudioSource _audioDamage;
+    [SerializeField] private AudioSource _audioDie;
 
     private void Update()
     {
@@ -70,9 +72,11 @@ public class TestEnemyCharacteristics : MonoBehaviour
         if (_currentHealth <= 0)
         {
             Die();
+            _audioDie.Play();
             return;
         }
         _animator.SetTrigger("Hurt");
+        _audioDamage.Play();
     }
 
     private void Die()

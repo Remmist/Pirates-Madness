@@ -17,6 +17,7 @@ public class PlayerSwordCombat : MonoBehaviour
     private PlayerMovement _playerMovement;
 
     private float _attackLocalScale = 0f;
+    [SerializeField] private AudioSource _audioMecz;
 
 
     private void Awake()
@@ -40,7 +41,9 @@ public class PlayerSwordCombat : MonoBehaviour
                 System.Random rnd = new System.Random();
                 _animator.SetInteger("AttackIndex", rnd.Next(0,3));
                 _animator.SetTrigger("Attack");
+               
                 Attack(false);
+                _audioMecz.Play();
                 _nextAttackTime = Time.time + 1f / _attackRate;
             }
         }

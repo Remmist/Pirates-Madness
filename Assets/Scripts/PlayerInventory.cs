@@ -21,7 +21,7 @@ public class PlayerInventory : MonoBehaviour
     private PlayerMovement _playerMovement;
 
     private PotionsBarsManager _potionsBarsManager;
-
+    [SerializeField] private AudioSource _audioPotion;
 
     private void Awake()
     {
@@ -40,12 +40,14 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             UseSlot(0);
+            _audioPotion.Play();
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (_items.Count == 2)
             {
                 UseSlot(1);
+                _audioPotion.Play();
             }
         }
     }

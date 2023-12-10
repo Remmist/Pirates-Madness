@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private LayerMask groundMask;
     private BoxCollider2D _collider;
+
+    [SerializeField] private AudioSource _audioJump;
+    [SerializeField] private AudioSource _audioDash;
     
     
     
@@ -96,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetTrigger("Dash");
             StartCoroutine(Dash());
+            _audioDash.Play();
         }
         
     }
@@ -133,6 +137,7 @@ public class PlayerMovement : MonoBehaviour
             _rb.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
             _isAfterJump = true;
             _animator.SetBool("IsAfterJump", true);
+            _audioJump.Play();
         }
         
         //Air Jump (Double jump)
@@ -141,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
             _rb.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
             _performAirJump = false;
             _animator.SetBool("IsAirJumped", false);
+            _audioJump.Play();
         }
     }
 
@@ -160,6 +166,7 @@ public class PlayerMovement : MonoBehaviour
         _dashManager.Reload();
         yield return new WaitForSeconds(_dashCooldown);
         _canDash = true;
+       
     }
 
     private void OnCollisionEnter2D(Collision2D other)

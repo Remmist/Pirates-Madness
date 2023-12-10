@@ -12,7 +12,7 @@ public class Trampoline : MonoBehaviour
     
     private Animator _animator;
 
-
+    [SerializeField] private AudioSource _audiotrampolin;
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -39,6 +39,7 @@ public class Trampoline : MonoBehaviour
             collision.gameObject.GetComponent<Animator>().SetBool("IsGrounded", false);
             collision.gameObject.GetComponent<Animator>().SetBool("IsAfterJump", true);
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+            _audiotrampolin.Play();
         }
     }
 
