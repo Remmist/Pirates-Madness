@@ -255,7 +255,7 @@ MonoBehaviour:
   _maxHealth: 100
   _repulsionForce: 500
   _audioDie: {fileID: 0}
-  _audioDamage: {fileID: 0}
+  _audioDamage: {fileID: 8735948185569535653}
 --- !u!95 &6096640374543960394
 Animator:
   serializedVersion: 5

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class KnifeBehaviour : CollectibleItem
 {
+    [SerializeField] private AudioSource _audioPickUp;
     protected override void CollectBehaviour()
     {
         var inventory = FindObjectOfType<PlayerInventory>();
@@ -13,6 +14,7 @@ public class KnifeBehaviour : CollectibleItem
         
         inventory.DaggersCounter++;
         Destroy(gameObject);
+        _audioPickUp.Play();
     }
 
     public override void UseItem()

@@ -16,6 +16,7 @@ protected override void CollectBehaviour()
         }
         playerCharacteristics.Heal(_healthPotionConfig.HealAmount);
         Debug.Log("You have found a health potion! " + _healthPotionConfig.HealAmount + " health points for You!");
+        _useIt.Play();
         Destroy(gameObject);
     }
 

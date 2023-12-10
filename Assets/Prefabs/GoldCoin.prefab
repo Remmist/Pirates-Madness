@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8868761fd68c5fa499457066bf48529e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectSound: {fileID: -260031166408215816}
+  _collectSound: {fileID: -260031166408215816}
 --- !u!95 &8560744478330059594
 Animator:
   serializedVersion: 5
@@ -203,7 +203,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 133
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
